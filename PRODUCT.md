@@ -20,7 +20,7 @@ Make four research projects readable as web case studies, retain original work a
 
 ## Brand Commitments
 
-Nishabh Polke is the published name. The user specified black and white, Apple-like minimalism, generous spacing, compact navigation, restrained motion, and original colors in project imagery. Joel Bobby is the publishing precedent. The user later requested distinctive typography, more designer personality, microinteractions, a separate Work page, and a crochet hobby section. The user selected Hanken Grotesk display with Onest reading text, then explicitly requested curved image frames and rounded controls as part of the Apple-like feel. All four studies must appear together on Home and Work without a study selector.
+Nishabh Polke is the published name. The user specified black and white, Apple-like minimalism, generous spacing, compact navigation, restrained motion, and original colors in project imagery. Joel Bobby is the publishing precedent. The user later requested distinctive typography, more designer personality, microinteractions, a separate Work page, and a crochet hobby section. The user selected Hanken Grotesk display with Onest reading text, then explicitly requested curved image frames and rounded controls as part of the Apple-like feel. The latest direction places the four studies in a spacious 2×2 grid on Home and Work, with larger rounded images and a single-column mobile layout.
 
 ## Capabilities and Constraints
 
@@ -44,3 +44,9 @@ Keyboard navigation, visible focus, reduced motion, readable HTML without JavaSc
 ## Personal Making
 
 The user supplied a carpet-in-progress photograph and two crochet-lamp photographs, and said crochet is the latest hobby. Home includes these actual images and a geometric stitch illustration with an interactive stitch sequence. Illustration state never represents actual project completion.
+
+## Latest personal content
+
+About includes Nishabh’s public LinkedIn reflection on six weeks of smart-home fieldwork across six cities and his self-reported GSA education and student projects. Sources and access limits are recorded in `research/social-review.md`. The verified Instagram profile is linked; its inaccessible content was not inferred.
+
+The crochet activity on Home and Work supports direct square stitching and unpicking, three tonal yarn choices, a visible six-square counter, undo, replay, keyboard operation and reduced motion. Its state is an illustration, not actual carpet completion.

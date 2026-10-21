@@ -9,12 +9,12 @@ Repository: [Parthawe/nishabh-polke](https://github.com/Parthawe/nishabh-polke)
 ## Pages
 
 - `/`: personal introduction, four research projects, crochet carpet and lamp, and an interactive stitch illustration.
-- `/work/`: four visible studies, documented findings, and the Forres handover.
+- `/work/`: four studies in a spacious 2×2 grid, documented findings, the Forres handover, and a crochet activity.
 - `/work/forres/`: FACTual community research and engagement tools.
 - `/work/endoscopic-device/`: clinical observation, workflow analysis, and market research.
 - `/work/tobacco-cessation/`: usability testing and mixed-method analysis.
 - `/work/smart-home/`: in-home usability research and task analysis.
-- `/about/`: background, additional work, project panels, and downloads.
+- `/about/`: sourced fieldwork story, education and student projects, personal making, additional work, and downloads.
 
 ## Develop
 
@@ -41,7 +41,7 @@ The checker validates local paths and fragments, responsive image sources, page 
 - `src/editorial.mjs`: research summaries, process trails, and artifact-reading notes.
 - `src/making.mjs`: personal making section and native SVG stitch illustration.
 - `styles.css`: visual system, responsive layouts, focus, motion, and image-viewer states.
-- `app.js`: progressive image viewer, lamp photograph switch, and finite stitch animation.
+- `app.js`: progressive image viewer, lamp photograph switch, and interactive stitch activity.
 - `assets/fonts/`: two self-hosted variable fonts and their OFL licenses.
 - `assets/originals/`: published source-image variants and original PDF page renders.
 - `assets/images/`: optimized web derivatives, crops, and three responsive sizes.

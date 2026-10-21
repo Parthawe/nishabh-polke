@@ -189,24 +189,110 @@ h1{letter-spacing:-.035em}.wordmark{font-family:var(--font-display);font-size:20
 .stitch-button{border:1px solid var(--line);border-radius:999px;padding:12px 19px;gap:20px}
 .stitch-button:hover{background:var(--surface)}
 .footer{border-radius:32px 32px 0 0}
-.home-projects{grid-template-columns:repeat(4,minmax(0,1fr));gap:26px}
-.home-project-image>img{aspect-ratio:1.25/1}
-.home-project-image>span{right:10px;bottom:10px;padding:8px 11px;font-size:11px;gap:7px}
-.home-project-copy{padding-top:22px}.home-project h3{font-size:25px;line-height:1.15}.home-project p{font-size:15px;line-height:1.8;margin-top:15px}
+.home-projects{grid-template-columns:repeat(2,minmax(0,1fr));gap:72px 48px}
+.home-project-image>img{aspect-ratio:1.5/1}
+.home-project-image>span{right:20px;bottom:20px;padding:11px 16px;font-size:13px;gap:10px}
+.home-project-copy{padding-top:28px}.home-project h3{font-size:32px;line-height:1.15}.home-project p{font-size:17px;line-height:1.8;margin-top:18px}
 .smart-home-home-image>img,.tobacco-cessation-home-image>img{object-fit:contain;padding:14px}
-.research-project-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px;align-items:start}
+.research-project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:80px 48px;align-items:start}
 .research-project-grid .study-panel{min-width:0;margin:0;padding:0;border:0}
-.research-project-grid .study-panel-title{display:block;min-height:120px;margin-bottom:16px}
-.research-project-grid .study-panel-title h3{font-size:26px;line-height:1.16;min-height:65px}
+.research-project-grid .study-panel-title{display:block;min-height:132px;margin-bottom:22px}
+.research-project-grid .study-panel-title h3{font-size:32px;line-height:1.16;min-height:76px}
 .research-project-grid .study-open{font-size:12px;margin-top:12px}
-.research-project-grid .study-visual{aspect-ratio:1.25/1}
-.research-project-grid .study-image-caption{min-height:60px}
-.research-project-grid .study-detail{display:block;padding-top:20px;margin-top:20px}
-.research-project-grid .study-detail>div>p{font-size:16px;line-height:1.8}
-.research-project-grid .study-detail dl{margin-top:24px;gap:16px}.research-project-grid .study-detail dd{font-size:14px}
-.research-project-grid .study-inspect{font-size:11px;right:10px;bottom:10px;padding:8px 10px;gap:5px}
+.research-project-grid .study-visual{aspect-ratio:1.5/1}
+.research-project-grid .study-image-caption{min-height:42px}
+.research-project-grid .study-detail{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;padding-top:24px;margin-top:24px}
+.research-project-grid .study-detail>div>p{font-size:17px;line-height:1.8}
+.research-project-grid .study-detail dl{margin-top:0;gap:16px}.research-project-grid .study-detail dd{font-size:14px}
+.research-project-grid .study-inspect{font-size:13px;right:20px;bottom:20px;padding:11px 15px;gap:8px}
 .research-download{margin-top:36px;margin-bottom:55px}
-@media(max-width:850px) and (min-width:701px){.home-projects,.research-project-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:45px 28px}.research-project-grid .study-panel-title{min-height:130px}.research-project-grid .study-panel-title h3{min-height:65px}.home-project h3{font-size:28px}.research-project-grid .study-visual,.home-project-image>img{aspect-ratio:1.5/1}}
+@media(max-width:1100px) and (min-width:701px){.home-projects,.research-project-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:60px 32px}.research-project-grid .study-detail{display:block}.research-project-grid .study-detail dl{margin-top:24px}.research-project-grid .study-panel-title{min-height:130px}.research-project-grid .study-panel-title h3{min-height:65px}.home-project h3{font-size:28px}.research-project-grid .study-visual,.home-project-image>img{aspect-ratio:1.5/1}}
 @media(max-width:700px){:root{--radius-image:20px;--radius-panel:22px}.home-projects,.research-project-grid{grid-template-columns:1fr;gap:40px}.home-project h3{font-size:29px}.home-project p{font-size:16px}.home-project-image>img,.research-project-grid .study-visual{aspect-ratio:1.5/1}.research-project-grid .study-panel-title{min-height:0;display:block;margin-bottom:18px}.research-project-grid .study-panel-title h3{font-size:29px;min-height:0}.research-project-grid .study-image-caption{min-height:0}.research-project-grid .study-detail{margin-top:18px}.research-download{margin-bottom:35px}.image-viewer{border-radius:0}.footer{border-radius:24px 24px 0 0}}
 
-@media(min-width:851px) and (max-width:1100px){.home-projects,.research-project-grid{gap:18px}.home-project h3{font-size:23px}.research-project-grid .study-panel-title{min-height:165px}.research-project-grid .study-panel-title h3{font-size:23px;min-height:108px}.research-project-grid .study-image-caption{min-height:80px}.study-inspect{gap:4px}.home-project-image>span{gap:4px;padding:8px}.research-project-grid .study-visual.tobacco-cessation-visual img,.research-project-grid .study-visual.smart-home-visual img{padding:12px}}
+
+@media(max-width:700px){.home-projects,.research-project-grid{row-gap:52px}.home-project h3{font-size:29px}.home-project p{font-size:16px}.home-project-copy{padding-top:22px}.research-project-grid .study-detail{display:block}.research-project-grid .study-detail dl{margin-top:24px}.home-project-image>span,.research-project-grid .study-inspect{right:14px;bottom:14px;padding:9px 12px;font-size:12px}}
+
+/* Shared motion: quiet arrivals, immediate feedback, and depth for actions. */
+:root{--motion-fast:140ms;--motion-state:260ms;--motion-arrive:720ms;--header-height:80px;--shadow-action:0 6px 16px rgb(29 29 31 / .12);--shadow-image:0 10px 28px rgb(29 29 31 / .09)}
+html{scroll-padding-top:var(--header-height)}
+.site-header{position:sticky;top:0;transition:box-shadow var(--motion-state) var(--ease),border-color var(--motion-state) var(--ease)}
+.site-header.is-scrolled{box-shadow:0 4px 18px rgb(29 29 31 / .055);border-color:transparent}
+.case-nav{top:var(--header-height)}
+.page-case .case-section{scroll-margin-top:30px}
+.artifact-section{scroll-margin-top:55px}
+.downloads,.making-section,.footer{scroll-margin-top:24px}
+.site-header nav a{transition:color var(--motion-fast) ease,opacity var(--motion-fast) ease}
+.site-header nav a::before{transition-duration:var(--motion-state)}
+.site-header nav a:focus-visible::before{transform:scaleX(1)}
+.primary-link,.stitch-button,.yarn-choices button,.lamp-controls button,.viewer-toolbar button{transition:background-color var(--motion-fast) ease,color var(--motion-fast) ease,box-shadow var(--motion-state) var(--ease),transform var(--motion-state) var(--ease),opacity var(--motion-fast) ease}
+.home-project-image,.study-visual,.artifact .image-link,.making-objects .image-link,.research-trail li>a{transition:box-shadow var(--motion-state) var(--ease)}
+.home-project-image>img{transition:transform 480ms var(--ease),filter var(--motion-state) ease}
+.home-project-image>span,.study-inspect,.enlarge-hint{transition:background-color var(--motion-fast) ease,color var(--motion-fast) ease,transform var(--motion-state) var(--ease)}
+.viewer-toolbar button:focus-visible,.lamp-controls button:focus-visible,.yarn-choices button:focus-visible{outline-offset:3px}
+.viewer-stage .viewer-image{transition:opacity 180ms ease}
+.viewer-toolbar button:disabled{opacity:.4;cursor:default}
+.download-row{transition:background-color var(--motion-fast) ease}
+.download-row svg{transition:transform var(--motion-state) var(--ease)}
+.lamp-controls button[data-loading]{opacity:.5;cursor:progress}
+.lamp-load-status{font-size:13px;color:var(--muted);margin-top:12px}
+.lamp-load-status:empty{display:none}
+.primary-link:active,.stitch-button:not(:disabled):active,.yarn-choices button:active,.lamp-controls button:active,.viewer-toolbar button:not(:disabled):active{transform:scale(.985);box-shadow:none;transition-duration:80ms}
+.home-project-image:focus-visible,.study-visual:focus-visible,.artifact .image-link:focus-visible,.making-objects .image-link:focus-visible,.research-trail li>a:focus-visible{box-shadow:var(--shadow-image)}
+.primary-link:focus-visible{box-shadow:var(--shadow-action)}
+.image-viewer{box-shadow:0 24px 80px rgb(0 0 0 / .2)}
+.image-viewer::backdrop{animation:viewer-backdrop-in 260ms ease both}
+.image-viewer.is-closing::backdrop{animation:viewer-backdrop-out 140ms ease both}
+@keyframes viewer-backdrop-in{from{background:rgb(0 0 0 / 0)}to{background:rgb(0 0 0 / .82)}}
+@keyframes viewer-backdrop-out{from{background:rgb(0 0 0 / .82)}to{background:rgb(0 0 0 / 0)}}
+@media(hover:hover) and (pointer:fine){
+ .primary-link:hover{transform:translateY(-1px);box-shadow:var(--shadow-action)}
+ .primary-link:active{transform:scale(.985);box-shadow:none}
+ .home-project-image:hover,.study-visual:hover,.artifact .image-link:hover,.making-objects .image-link:hover,.research-trail li>a:hover{box-shadow:var(--shadow-image)}
+ .home-project-image:hover>img{transform:scale(1.018);filter:brightness(.98)}
+ .home-project-image:hover>span,.study-visual:hover .study-inspect{transform:translateY(-2px)}
+ .viewer-toolbar button:not(:disabled):hover,.yarn-choices button[aria-pressed=false]:hover{background:var(--surface)}
+ .lamp-controls button[aria-pressed=false]:hover{color:var(--ink);background:rgb(29 29 31 / .06)}
+ .download-row:hover{background:rgb(29 29 31 / .025)}
+ .download-row:hover svg{transform:translateX(3px)}
+}
+@media(prefers-reduced-motion:no-preference){
+ .personal-intro h1{animation:identity-arrive 600ms var(--ease) both}
+ .personal-role,.personal-description,.personal-actions{animation:identity-arrive 600ms var(--ease) 70ms both}
+ .personal-portrait img{animation:portrait-arrive var(--motion-arrive) var(--ease) 90ms both}
+ @keyframes identity-arrive{from{opacity:.25;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+ @keyframes portrait-arrive{from{opacity:.2;transform:translateY(12px);clip-path:inset(0 0 9% 0)}to{opacity:1;transform:translateY(0);clip-path:inset(0)}}
+}
+@media(max-width:700px){:root{--header-height:72px}}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ .primary-link,.stitch-button,.yarn-choices button,.lamp-controls button,.viewer-toolbar button,.home-project-image>img,.home-project-image>span,.study-inspect,.download-row svg,.text-link svg,.primary-link svg{transform:none!important}
+ ::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}
+}
+
+/* The stitch study is a small, reversible activity with direct square controls. */
+.crochet-canvas{background:var(--surface);border-radius:28px;padding:28px 16px 20px;min-width:0}
+.crochet-svg{color:var(--yarn,#785642)}.patch-hit-area{fill:transparent;stroke:none;pointer-events:all}
+.crochet-study.is-interactive .crochet-patch{cursor:pointer;outline:none}
+.crochet-study.is-interactive .crochet-patch:not(.is-stitched):not(.is-stitching) .yarn-loop{visibility:visible;opacity:.14}
+.crochet-study.is-interactive .crochet-patch:not(.is-stitched):hover .yarn-loop{opacity:.4}
+.crochet-patch:focus-visible .patch-hit-area{stroke:var(--ink);stroke-width:1.5}
+.crochet-patch[aria-disabled=true]{cursor:wait}
+.crochet-hook,.loose-thread{translate:var(--hook-x,0px) var(--hook-y,0px);transition:translate .35s var(--ease)}
+.crochet-counter{font-size:14px;text-align:center;color:var(--ink);margin-top:5px;font-variant-numeric:tabular-nums}
+.crochet-controls>span{font-size:36px;line-height:1.12;max-width:none}
+.crochet-instructions{font-size:15px;line-height:1.8;max-width:360px;margin-top:18px}
+.yarn-choices{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}.yarn-choices button{display:flex;align-items:center;gap:8px;min-height:42px;background:transparent;border:1px solid var(--line);border-radius:999px;padding:9px 12px;font-size:13px;cursor:pointer}.yarn-choices button[aria-pressed=true]{border-color:var(--ink);background:var(--paper)}.yarn-choices i{display:block;width:13px;height:13px;background:var(--swatch);border-radius:50%}
+.stitch-actions{display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-top:24px}.stitch-actions .stitch-button{margin:0;background:var(--ink);color:var(--paper);border-color:var(--ink)}.stitch-actions .stitch-button:disabled{opacity:.6}.unpick-button{border:0;background:none;text-decoration:underline;text-underline-offset:5px;padding:10px 0;min-height:44px;font-size:13px;cursor:pointer}.unpick-button:disabled{opacity:.45;cursor:default}
+.work-making{padding-block:70px 90px}.work-making-heading{max-width:660px}.work-making-heading p{font-size:17px;line-height:1.8;margin-top:22px}.work-making-heading .text-link{margin-top:14px}.work-making .crochet-study{margin-top:35px}
+.about-field-story,.about-learning,.about-personal-making{display:grid;grid-template-columns:1fr 1fr;gap:72px;padding-block:72px;border-top:1px solid var(--line);align-items:center}
+.about-field-story h2,.about-learning h2,.about-personal-making h2{font-size:38px;line-height:1.15}.about-field-story p,.about-learning p,.about-personal-making p{font-size:17px;line-height:1.85;margin-top:22px}.about-field-story .text-link,.about-learning .text-link,.about-personal-making .text-link{margin-top:20px}.about-field-image{border-radius:24px;background:var(--surface);padding:28px;overflow:hidden}.about-field-image img{aspect-ratio:1.3;object-fit:contain}.about-learning{align-items:start}.about-learning dl{display:grid;gap:26px}.about-learning dl>div{padding-bottom:24px;border-bottom:1px solid var(--line)}.about-learning dt{font-family:var(--font-display);font-size:25px;font-weight:600}.about-learning dd{font-size:16px;color:var(--muted);line-height:1.8;margin-top:10px}.about-making-photos{display:grid;grid-template-columns:1fr 1fr;gap:20px}.about-making-photos a{overflow:hidden;border-radius:24px}.about-making-photos img{height:100%;aspect-ratio:4/5;object-fit:cover}
+@media(max-width:1000px) and (min-width:701px){.crochet-study{gap:35px}.yarn-choices{gap:5px}.yarn-choices button{padding:8px;font-size:12px}.stitch-actions{gap:12px}.about-field-story,.about-learning,.about-personal-making{gap:36px}.about-field-story h2,.about-learning h2,.about-personal-making h2{font-size:32px}.about-field-image{padding:20px}}
+@media(max-width:700px){.crochet-canvas{padding:18px 10px;border-radius:22px}.crochet-controls>span{font-size:32px}.crochet-instructions{font-size:15px}.yarn-choices{margin-top:18px}.work-making{padding-block:45px 60px}.about-field-story,.about-learning,.about-personal-making{grid-template-columns:1fr;gap:30px;padding-block:44px}.about-field-story h2,.about-learning h2,.about-personal-making h2{font-size:32px}.about-field-story p,.about-learning p,.about-personal-making p{font-size:16px}.about-field-image{padding:18px}.about-making-photos{gap:16px}.about-making-photos a{border-radius:20px}}
+
+.crochet-study.is-interactive .crochet-patch:not(.is-stitched) .yarn-border{stroke:#88786b;stroke-width:1.4}
+.about-field-image img{aspect-ratio:auto;height:auto;object-fit:contain;padding:0}
+.about-field-image .artifact .image-link{background:transparent;border-radius:0}
+.about-field-image .enlarge-hint{position:static;background:transparent;border:0;border-radius:0;padding:16px 0 0;min-height:44px}
+.about-field-image .image-link:hover .enlarge-hint{background:transparent;color:var(--ink);text-decoration:underline}
+.about-field-image .artifact figcaption{font-size:12px;line-height:1.7}
+.about-portrait{border-radius:0;overflow:visible}.about-portrait img{border-radius:var(--radius-image)}
