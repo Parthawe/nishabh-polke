@@ -22,6 +22,24 @@ for source,name,box in [
     for width in [800,1600,2400]:
         derivative=crop.copy();derivative.thumbnail((width,width*8))
         derivative.save(root/f'assets/images/{name}-{width}.webp','WEBP',quality=91,method=6)
+# A thumbnail composition from the two original screen rectangles on PDF page 5.
+# Keep screen pixels unchanged apart from proportional resizing; exclude annotation columns.
+native=Image.open(root/'assets/originals/ux-05-native.jpg').convert('RGB')
+canvas=Image.new('RGB',(1200,800),'#f5f5f7')
+screens=[]
+for box in [(.351,.185,.400,.330),(.504,.185,.553,.330)]:
+    screen=native.crop(tuple(round(v*(native.width if i%2==0 else native.height)) for i,v in enumerate(box)))
+    screen=screen.resize((round(screen.width*720/screen.height),720),Image.Resampling.LANCZOS)
+    screens.append(screen)
+gap=96
+left=(canvas.width-sum(im.width for im in screens)-gap)//2
+for screen in screens:
+    canvas.paste(screen,(left,40))
+    left+=screen.width+gap
+for width in [800,1600,2400]:
+    derivative=canvas.copy();derivative.thumbnail((width,width*8))
+    derivative.save(root/f'assets/images/smart-home-screens-{width}.webp','WEBP',quality=94,method=6)
+
 out=root/'assets/images'
 dimensions_file=root/'research/image-dimensions.json'
 dimensions=json.loads(dimensions_file.read_text()) if dimensions_file.exists() else {}

@@ -281,3 +281,5 @@ Reduced-motion preferences remove CSS animation, transitions, transforms, and sm
 ### Focused project previews
 
 Use a focused source-artifact detail to fill each project image frame. Home and Work use dedicated 3:2 previews for tobacco cessation and smart home, with `object-fit: cover` and zero image padding. Preserve the selected content, original colors, rounded frame, and access to the complete original source. Full case-study covers may use a wider overview.
+
+The smart-home grid preview pairs two enlarged source screen crops and omits surrounding annotation columns. Preserve their proportions and the link to the full annotated source.

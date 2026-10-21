@@ -75,9 +75,9 @@ export const editorial = {
     finding: 'Some people treated pairing instructions as controls.',
     reading: 'During bulb pairing, participants missed instructions and interacted with the illustrations. The report connected these observations to recommendations for clearer guidance and visible pairing progress.',
     coverCaption: 'Task evidence and annotated recommendations for bulb pairing and home creation.',
-    previewImage: 'smart-home-preview',
-    previewAlt: 'Close view of two smart-bulb pairing screens with annotated usability recommendations',
-    previewCaption: 'Detail of the bulb-pairing screens and the usability recommendations around them.',
+    previewImage: 'smart-home-screens',
+    previewAlt: 'Two enlarged app screens showing smart-bulb pairing and the connected-device home screen',
+    previewCaption: 'The pairing flow and connected-device screen, extracted from the original research artifact.',
     trail: [
       {image:'ux-03',title:'Test at home',text:'Observe twelve everyday tasks in the participant’s own setting.'},
       {image:'ux-04',title:'Capture the difficulty',text:'Record completion, observed problems and verbal feedback together.'},

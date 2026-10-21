@@ -934,5 +934,17 @@
   "smart-home-preview-800.webp": [
     800,
     533
+  ],
+  "smart-home-screens-1600.webp": [
+    1200,
+    800
+  ],
+  "smart-home-screens-2400.webp": [
+    1200,
+    800
+  ],
+  "smart-home-screens-800.webp": [
+    800,
+    533
   ]
 }

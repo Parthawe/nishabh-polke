@@ -29,7 +29,7 @@ function image(name, alt, base, {eager=false, className='', sizes='(max-width: 7
 }
 function originalOf(name) {
   if(name==='cessation-preview')return 'assets/originals/ux-08-native.jpg';
-  if(name==='smart-home-preview')return 'assets/originals/ux-05-native.jpg';
+  if(name==='smart-home-preview'||name==='smart-home-screens')return 'assets/originals/ux-05-native.jpg';
   const crops = {'endoscopy-cover':'ux-12', 'endoscopy-workflow':'ux-13', 'clinical-needs':'ux-14', 'cessation-cover':'ux-10', 'cessation-findings':'ux-08', 'smart-home-cover':'ux-05', 'smart-pairing':'ux-05', 'smart-tasks':'ux-03'};
   return manifest.find(x=>x.id===name)?.original || `assets/originals/${crops[name]||name}.png`;
 }

@@ -46,3 +46,9 @@ GitHub Pages reported a successful build for `32c48437df083bbe640bbbad2a82728dd8
 The last two Home and Work previews now use close details extracted from the original UX portfolio’s native JPEGs. Desktop frames render at 576×384px with zero CSS image padding and 24px corners; mobile keeps the source details inside the rounded frames without horizontal overflow. Tobacco-cessation enlargement opens the complete native page-8 source. Case-study cover selections remain unchanged. Static build/link checks and JavaScript syntax checks passed.
 
 Independent preview review disposition: **ship**. Both selected source panels remain intact, fill their frames, and retain original-source access.
+
+## Smart-home screen crop
+
+The Home and Work preview now pairs the two original app screens at a larger scale, excluding surrounding annotation columns. The 3:2 frame and full source download are retained. The static checker passes all 446 local links, image sources and original targets.
+
+Desktop and mobile recaptures confirm both app screens visibly load and retain their proportions. Work enlargement opens the full native source. Independent focused review disposition: **ship**.

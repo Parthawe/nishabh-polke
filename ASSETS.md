@@ -112,6 +112,8 @@ The final Home portrait uses `assets/originals/nishabh-painting.png` with respon
 
 ## Focused research previews
 
-Home and Work use `cessation-preview-*` (the first two interview-finding panels on UX PDF page 8) and `smart-home-preview-*` (the annotated bulb-pairing panel on page 5). These replace the wide overview thumbnails in project grids. The original case-study covers remain available.
+Home and Work use `cessation-preview-*` (the first two interview-finding panels on UX PDF page 8) and `smart-home-screens-*` (two app-screen crops from page 5). These replace the wide overview thumbnails in project grids. The original case-study covers remain available.
 
 The source JPEGs were extracted directly from the original PDF and archived as `assets/originals/ux-08-native.jpg` and `ux-05-native.jpg`, each 3508×2481px. Their source records, dimensions, sizes and SHA-256 hashes are in the asset manifest. `scripts/prepare-editorial-images.py` records normalized crop bounds and creates three WebP variants. Small matching background margins preserve the selected panels within the 3:2 ratio. Project frames apply zero CSS padding; no research text or diagrams were redrawn. Work enlargement links retain the complete native source image and its download.
+
+The smart-home preview pairs the original pairing screen and connected-device screen side by side at a larger scale, excluding the surrounding annotation columns. The source screenshots and their existing red highlights remain intact. The exact two crop rectangles and proportional layout are recorded in `scripts/prepare-editorial-images.py`; the complete annotated source remains available through enlargement and original download. The earlier `smart-home-preview-*` panel crop is retained as an archived derivative.
