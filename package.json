@@ -1,0 +1,13 @@
+{
+  "name": "nishabh-polke-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node src/render.mjs",
+    "render": "node src/render.mjs",
+    "dev": "python3 -m http.server 5173 --bind 127.0.0.1",
+    "check": "node scripts/check.mjs",
+    "prepare:pages": "npm run build && npm run check"
+  }
+}
