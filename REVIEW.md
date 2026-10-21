@@ -28,3 +28,7 @@ Independent Impeccable finish review disposition: **ship**.
 The review confirmed the selected font system, four-project layouts, rounded surfaces, and making controls. The documented design system and Work page class now match the implementation. No material regressions were visible in the final desktop and mobile captures.
 
 Source documents were checked during authoring. The separate design reviewer did not independently re-audit all research sources.
+
+## Public deployment
+
+GitHub Pages reported a successful build for `32c48437df083bbe640bbbad2a82728dd8e6a573`. All seven public content routes returned HTTP 200 with the selected font references. Home and Work each contained four projects. All 318 published files checked by HTTP HEAD returned 200 with no retries, including fonts, image derivatives, originals, and PDFs. The live Work page visibly rendered four columns, Hanken Grotesk, and 24px image corners.
