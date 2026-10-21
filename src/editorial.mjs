@@ -51,6 +51,9 @@ export const editorial = {
     finding: 'Interviews added context to stated feature preferences.',
     reading: 'Initial responses favored the quit plan. Later interviews brought out stronger interest in the Resources section, while consultation feedback revealed how people felt about getting expert support.',
     coverCaption: 'Task analysis and qualitative interview synthesis from the original study.',
+    previewImage: 'cessation-preview',
+    previewAlt: 'Close view of interview findings about feature preferences and terminology in the tobacco-cessation app',
+    previewCaption: 'A closer look at interview findings on useful features and clear terminology.',
     trail: [
       {image:'ux-07',title:'Watch people explore',text:'Observe navigation and follow up with an interview about the experience.'},
       {image:'ux-08',title:'Follow the consultation journey',text:'Book an appointment, attend a consultation, and gather feedback afterward.'},
@@ -72,6 +75,9 @@ export const editorial = {
     finding: 'Some people treated pairing instructions as controls.',
     reading: 'During bulb pairing, participants missed instructions and interacted with the illustrations. The report connected these observations to recommendations for clearer guidance and visible pairing progress.',
     coverCaption: 'Task evidence and annotated recommendations for bulb pairing and home creation.',
+    previewImage: 'smart-home-preview',
+    previewAlt: 'Close view of two smart-bulb pairing screens with annotated usability recommendations',
+    previewCaption: 'Detail of the bulb-pairing screens and the usability recommendations around them.',
     trail: [
       {image:'ux-03',title:'Test at home',text:'Observe twelve everyday tasks in the participant’s own setting.'},
       {image:'ux-04',title:'Capture the difficulty',text:'Record completion, observed problems and verbal feedback together.'},

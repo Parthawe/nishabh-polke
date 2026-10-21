@@ -910,5 +910,29 @@
   "nishabh-brush-portrait-2400.webp": [
     2400,
     2999
+  ],
+  "cessation-preview-1600.webp": [
+    1600,
+    1067
+  ],
+  "cessation-preview-2400.webp": [
+    1719,
+    1146
+  ],
+  "cessation-preview-800.webp": [
+    800,
+    533
+  ],
+  "smart-home-preview-1600.webp": [
+    1056,
+    704
+  ],
+  "smart-home-preview-2400.webp": [
+    1056,
+    704
+  ],
+  "smart-home-preview-800.webp": [
+    800,
+    533
   ]
 }

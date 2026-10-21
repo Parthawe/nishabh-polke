@@ -393,7 +393,8 @@
       "Do use the shared container, two-column project grids, and generous gaps; stack to one column on mobile.",
       "Do retain visible focus, accessible loading and failure states, and reduced-motion support.",
       "Do keep the reversible stitch activity distinct from the real carpet\u2019s progress and preserve its direct keyboard controls.",
-      "Do describe the hero as a painted-style portrait transformation; preserve the supplied original photographs and research artifacts."
+      "Do describe the hero as a painted-style portrait transformation; preserve the supplied original photographs and research artifacts.",
+      "Do use focused source details for 3:2 project previews with zero image padding and access to the complete original."
     ],
     "donts": [
       "Don't add decorative gradients, glass, glows, or permanent floating outer cards around the project entries.",

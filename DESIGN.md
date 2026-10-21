@@ -277,3 +277,7 @@ Reduced-motion preferences remove CSS animation, transitions, transforms, and sm
 - Don't replace the user-selected font pairing with earlier type explorations or system-only typography.
 - Don't add filled outer cards around the project grid items or recolor source research imagery.
 - Don't hide projects behind selectors or a JavaScript-only interface.
+
+### Focused project previews
+
+Use a focused source-artifact detail to fill each project image frame. Home and Work use dedicated 3:2 previews for tobacco cessation and smart home, with `object-fit: cover` and zero image padding. Preserve the selected content, original colors, rounded frame, and access to the complete original source. Full case-study covers may use a wider overview.

@@ -109,3 +109,9 @@ Hanken Grotesk is used for display typography; Onest is used for reading text an
 `assets/originals/nishabh-illustration.png` and `assets/images/nishabh-illustration-*` are an AI-generated editorial interpretation of the sourced coastal portrait, used on Home. They are an illustration, not original research evidence or a hand-drawn work by Nishabh. The generation record is retained in `research/nishabh-illustration.json`; the original photographs remain archived.
 
 The final Home portrait uses `assets/originals/nishabh-painting.png` with responsive `nishabh-painting-*` derivatives. This is a generated painted-style interpretation of the sourced portrait, documented in `research/nishabh-painting.json`. The earlier ink illustration remains in the archive.
+
+## Focused research previews
+
+Home and Work use `cessation-preview-*` (the first two interview-finding panels on UX PDF page 8) and `smart-home-preview-*` (the annotated bulb-pairing panel on page 5). These replace the wide overview thumbnails in project grids. The original case-study covers remain available.
+
+The source JPEGs were extracted directly from the original PDF and archived as `assets/originals/ux-08-native.jpg` and `ux-05-native.jpg`, each 3508×2481px. Their source records, dimensions, sizes and SHA-256 hashes are in the asset manifest. `scripts/prepare-editorial-images.py` records normalized crop bounds and creates three WebP variants. Small matching background margins preserve the selected panels within the 3:2 ratio. Project frames apply zero CSS padding; no research text or diagrams were redrawn. Work enlargement links retain the complete native source image and its download.

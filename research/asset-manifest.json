@@ -550,5 +550,29 @@
     "status": "generated",
     "width": 1122,
     "height": 1402
+  },
+  {
+    "id": "ux-05-native",
+    "url": null,
+    "source": "Native JPEG embedded in original UX portfolio, PDF page 5",
+    "credit": "Nishabh Polke / Monsoonfish",
+    "original": "assets/originals/ux-05-native.jpg",
+    "width": 3508,
+    "height": 2481,
+    "sha256": "38e05f76a9a049b1ff978b91febc6c4819ac5f5820317798412e2f79cd65d9f7",
+    "bytes": 3138949,
+    "status": "extracted"
+  },
+  {
+    "id": "ux-08-native",
+    "url": null,
+    "source": "Native JPEG embedded in original UX portfolio, PDF page 8",
+    "credit": "Nishabh Polke / Monsoonfish",
+    "original": "assets/originals/ux-08-native.jpg",
+    "width": 3508,
+    "height": 2481,
+    "sha256": "e7a04f825806083c5674342acdc649c693b7eebccc33d91714b301066966663d",
+    "bytes": 2221771,
+    "status": "extracted"
   }
 ]

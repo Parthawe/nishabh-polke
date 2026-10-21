@@ -40,3 +40,9 @@ GitHub Pages reported a successful build for `32c48437df083bbe640bbbad2a82728dd8
 - About artifact enlargement opens the original UX page; Escape returns to the page.
 - With JavaScript disabled, Home retains four projects and the complete six-square illustration, while activity controls stay hidden.
 - Layout detector returned no findings; JavaScript syntax and the static site checker passed.
+
+## Focused preview revision
+
+The last two Home and Work previews now use close details extracted from the original UX portfolio’s native JPEGs. Desktop frames render at 576×384px with zero CSS image padding and 24px corners; mobile keeps the source details inside the rounded frames without horizontal overflow. Tobacco-cessation enlargement opens the complete native page-8 source. Case-study cover selections remain unchanged. Static build/link checks and JavaScript syntax checks passed.
+
+Independent preview review disposition: **ship**. Both selected source panels remain intact, fill their frames, and retain original-source access.
