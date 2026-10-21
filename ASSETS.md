@@ -68,7 +68,7 @@ GSA images are the largest published `srcset` variant available in the inspected
 - `assets/images/smart-home-cover-*`: crop of research findings and app screens on UX PDF page 5.
 - `assets/images/ux-02-*` through `ux-17-*`: original portfolio pages supporting the three product-research cases. All 17 UX pages were rendered and archived.
 - `assets/images/architecture-02-*`: About preview. Original twenty-page PDF retained intact; first three pages rendered for selection.
-- `assets/images/portrait-*`: original Linktree portrait, used on home, About, and social preview.
+- `assets/images/portrait-*`: original Linktree portrait, used on About and social preview. The GSA coastal portrait remains archived.
 - `assets/images/scarlet-01-*` through `scarlet-11-*`: About preview and full project-panel gallery, credited to both authors.
 - `assets/social.jpg`: local text composition with the sourced portrait.
 - `favicon.svg`: original geometric letter N drawn for this site.
@@ -80,3 +80,32 @@ GSA images are the largest published `srcset` variant available in the inspected
 ## Verification
 
 All 42 published images and four PDFs were acquired successfully. Per-file SHA-256 hashes and sizes are in `research/asset-manifest.json` and `research/pdf-manifest.json`. No temporary or credential-bearing download URLs are embedded in the website; the manifests contain stable public source URLs. Credits describe provenance and do not claim a general redistribution license.
+
+## User-supplied making photographs
+
+Supplied on 21 October 2026 for this portfolio. Credit: Nishabh Polke / supplied by the user. There is no external source URL. Intact files and SHA-256 checksums are recorded in the asset manifest.
+
+| Original | Usage |
+| --- | --- |
+| `assets/originals/crochet-carpet.png` | Home: carpet in progress; responsive WebP variants and original download. |
+| `assets/originals/crochet-lamp.png` | Home: pendant lamp view; responsive WebP variants and original download. |
+| `assets/originals/crochet-lamp-detail.png` | Home: glowing stitch detail, selected with the photograph switch; direct link without JavaScript. |
+
+The animated granny-square study in `src/making.mjs` is an original code-native SVG illustration inspired by the carpet photograph. It represents illustrative stitches, not measured project progress.
+
+## Additional research crops
+
+`scripts/prepare-editorial-images.py` produces `smart-pairing` from UX page 5, `smart-tasks` from page 3, `cessation-findings` from page 8, and `clinical-needs` from page 14. These isolate existing evidence for reading on the website. Original full pages remain available through enlargement and downloads. No research data was redrawn.
+
+## Fonts
+
+Hanken Grotesk is used for display typography; Onest is used for reading text and interface labels. Both are self-hosted WOFF2 variable fonts, obtained from their Fontsource npm packages, with OFL licenses alongside the files in `assets/fonts/`. No font requests go to a third-party service.
+
+- [Hanken Grotesk source and license](https://github.com/marcologous/hanken-grotesk): `hanken-grotesk-latin.woff2`, `HANKEN-LICENSE.txt`.
+- [Onest source and license](https://github.com/simpals/onest): `onest-latin.woff2`, `ONEST-LICENSE.txt`.
+
+## Illustrated portrait
+
+`assets/originals/nishabh-illustration.png` and `assets/images/nishabh-illustration-*` are an AI-generated editorial interpretation of the sourced coastal portrait, used on Home. They are an illustration, not original research evidence or a hand-drawn work by Nishabh. The generation record is retained in `research/nishabh-illustration.json`; the original photographs remain archived.
+
+The final Home portrait uses `assets/originals/nishabh-painting.png` with responsive `nishabh-painting-*` derivatives. This is a generated painted-style interpretation of the sourced portrait, documented in `research/nishabh-painting.json`. The earlier ink illustration remains in the archive.

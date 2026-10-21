@@ -490,5 +490,65 @@
     "sha256": "2399ddcaddc301ec69a2998615f45dca85d45d80f2826e367f0abbd07ad1571e",
     "bytes": 429036,
     "status": "downloaded"
+  },
+  {
+    "id": "crochet-carpet",
+    "url": null,
+    "source": "User-supplied carpet-in-progress photograph, 21 October 2026",
+    "credit": "Nishabh Polke / supplied by user",
+    "original": "assets/originals/crochet-carpet.png",
+    "width": 1200,
+    "height": 1600,
+    "sha256": "4d5bce188f14b13da7b92fae3fdeefc6f61271c9f2dbc5b177b3f2d4455bfe9f",
+    "bytes": 4142534,
+    "status": "downloaded"
+  },
+  {
+    "id": "crochet-lamp",
+    "url": null,
+    "source": "User-supplied crochet lamp photograph, 21 October 2026",
+    "credit": "Nishabh Polke / supplied by user",
+    "original": "assets/originals/crochet-lamp.png",
+    "width": 1086,
+    "height": 1448,
+    "sha256": "671773e1798790ebddee3f7da8892cb04f7b667e8b4d351117dbce9a2dac0017",
+    "bytes": 891907,
+    "status": "downloaded"
+  },
+  {
+    "id": "crochet-lamp-detail",
+    "url": null,
+    "source": "User-supplied crochet lamp photograph, 21 October 2026",
+    "credit": "Nishabh Polke / supplied by user",
+    "original": "assets/originals/crochet-lamp-detail.png",
+    "width": 1536,
+    "height": 2048,
+    "sha256": "afba75027c95c13ffc4350f873bf5105e92bc6f4d046da0aa1fa89b4326efb24",
+    "bytes": 1095029,
+    "status": "downloaded"
+  },
+  {
+    "id": "nishabh-illustration",
+    "url": null,
+    "source": "AI-generated editorial interpretation of sourced coastal portrait; generation record in research/nishabh-illustration.json",
+    "credit": "Generated with image_gen from Nishabh Polke portrait",
+    "original": "assets/originals/nishabh-illustration.png",
+    "width": 1122,
+    "height": 1402,
+    "sha256": "3f8ae3aa866d925702c1344af405b082510e07eec30f8cc2ad446253935b77fb",
+    "bytes": 2509152,
+    "status": "generated"
+  },
+  {
+    "id": "nishabh-painting",
+    "url": null,
+    "source": "Generated painted-style interpretation of sourced portrait; research/nishabh-painting.json",
+    "credit": "Generated with image_gen from Nishabh Polke portrait",
+    "original": "assets/originals/nishabh-painting.png",
+    "sha256": "7dad3d23cfdf1bc34042a87e058cbb5545dd9ec57c3d1398fd01d24990f8879b",
+    "bytes": 2944900,
+    "status": "generated",
+    "width": 1122,
+    "height": 1402
   }
 ]

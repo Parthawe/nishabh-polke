@@ -1,0 +1,7 @@
+{
+  "tool": "image_gen.imagegen (built-in)",
+  "source": "User-supplied coastal portrait of Nishabh Polke",
+  "asset": "assets/originals/nishabh-illustration.png",
+  "use": "Homepage hero",
+  "prompt": "Use case: style-transfer.\nAsset type: illustrated portrait for Nishabh Polke's portfolio homepage.\nInput image 1 is the edit target and identity reference. Transform this exact man into a polished hand-drawn editorial illustration. Preserve his recognizable face, windswept dark hair with lighter streaks, clear-frame glasses, beard, smiling expression, small earring, chain necklace, dark open jacket, T-shirt, and white tote bag strap. Preserve the three-quarter pose looking toward the left.\nStyle: expressive black ink contours with subtle pencil hatching and flat restrained grayscale shading. Clearly an illustration, not a photo or photographic filter. Refined and personable, with natural human proportions and carefully observed likeness. No cartoon exaggeration.\nComposition: vertical 4:5 portrait, waist-up, centered in frame, full hair and shoulders visible with modest breathing room above and on both sides. Subject occupies most of the canvas. Remove the coast and sky completely; use a uniform pale cool gray background #f5f5f7 that suits a minimal monochrome portfolio. Opaque background. No border, text, labels, decorative shapes, scenery, logos, or watermark."
+}

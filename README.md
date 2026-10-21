@@ -1,6 +1,6 @@
 # Nishabh Polke
 
-A static research portfolio with four web case studies, original project artifacts, an About page, and downloadable portfolios.
+A static research portfolio with separate Home and Work pages, four case studies, original research artifacts, personal making projects, and downloadable portfolios.
 
 Live site: [parthawe.github.io/nishabh-polke](https://parthawe.github.io/nishabh-polke/)
 
@@ -8,7 +8,8 @@ Repository: [Parthawe/nishabh-polke](https://github.com/Parthawe/nishabh-polke)
 
 ## Pages
 
-- `/`: selected research, individual roles, methods, and introduction.
+- `/`: personal introduction, four research projects, crochet carpet and lamp, and an interactive stitch illustration.
+- `/work/`: four visible studies, documented findings, and the Forres handover.
 - `/work/forres/`: FACTual community research and engagement tools.
 - `/work/endoscopic-device/`: clinical observation, workflow analysis, and market research.
 - `/work/tobacco-cessation/`: usability testing and mixed-method analysis.
@@ -17,7 +18,7 @@ Repository: [Parthawe/nishabh-polke](https://github.com/Parthawe/nishabh-polke)
 
 ## Develop
 
-Requires Node.js 18+ and Python 3. There are no npm dependencies and no production JavaScript libraries.
+Requires Node.js 18+ and Python 3. There are no production JavaScript libraries. The two development dependencies provide the self-hosted Hanken Grotesk and Onest font files. Normal builds use checked-in fonts and images without requiring npm installation.
 
 ```sh
 npm run build
@@ -37,8 +38,11 @@ The checker validates local paths and fragments, responsive image sources, page 
 
 - `src/content.mjs`: project copy, evidence captions, credits, and sources.
 - `src/render.mjs`: shared HTML layout and page composition.
+- `src/editorial.mjs`: research summaries, process trails, and artifact-reading notes.
+- `src/making.mjs`: personal making section and native SVG stitch illustration.
 - `styles.css`: visual system, responsive layouts, focus, motion, and image-viewer states.
-- `app.js`: progressive image viewer, loading recovery, zoom, and focus restoration.
+- `app.js`: progressive image viewer, lamp photograph switch, and finite stitch animation.
+- `assets/fonts/`: two self-hosted variable fonts and their OFL licenses.
 - `assets/originals/`: published source-image variants and original PDF page renders.
 - `assets/images/`: optimized web derivatives, crops, and three responsive sizes.
 - `assets/downloads/`: four intact PDF files.
@@ -48,11 +52,11 @@ Do not hand-edit generated HTML in `docs/`. Rebuild after editing sources. `PROD
 
 ## Assets
 
-The originals include 42 published images, four PDFs, and portfolio page renders. Source media retains its original colors. Source bytes and full URLs are retained in the manifest; no temporary authenticated download URLs are committed.
+The originals include 42 published images, three user-supplied crochet photographs, four PDFs, and portfolio page renders. Source media retains its original colors. Source bytes and full URLs are retained in the manifest; no temporary authenticated download URLs are committed.
 
 The existing PDFs are image-based. The website provides readable HTML summaries as well as the intact PDFs and page images. Diagram captions, an enlargement viewer, zoom, and original-image downloads support closer inspection.
 
-To regenerate media, install Pillow and Poppler, render the PDF pages as described in `research/README.md`, then run `scripts/prepare-images.py`. Normal site builds use the checked-in assets and require neither package. `scripts/collect-assets.py` reacquires the published GSA, Behance, and Linktree images from the saved catalogs.
+To regenerate media, install Pillow and Poppler, render the PDF pages as described in `research/README.md`, then run `scripts/prepare-images.py` and `scripts/prepare-editorial-images.py`. Normal site builds use the checked-in assets and require neither package. `scripts/collect-assets.py` reacquires the published GSA, Behance, and Linktree images from the saved catalogs.
 
 ## Publish
 

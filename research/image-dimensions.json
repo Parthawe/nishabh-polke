@@ -23,6 +23,14 @@
     1600,
     1132
   ],
+  "smart-pairing-2400.webp": [
+    2249,
+    436
+  ],
+  "smart-pairing-800.webp": [
+    800,
+    155
+  ],
   "forres-29-1600.webp": [
     200,
     150
@@ -30,6 +38,10 @@
   "scarlet-01-2400.webp": [
     2400,
     5723
+  ],
+  "cessation-findings-1600.webp": [
+    1600,
+    583
   ],
   "forres-21-800.webp": [
     800,
@@ -135,6 +147,10 @@
     800,
     925
   ],
+  "clinical-needs-2400.webp": [
+    2220,
+    968
+  ],
   "ux-09-2400.webp": [
     2400,
     1698
@@ -206,6 +222,10 @@
   "scarlet-07-1600.webp": [
     1600,
     3812
+  ],
+  "clinical-needs-1600.webp": [
+    1600,
+    698
   ],
   "scarlet-03-800.webp": [
     800,
@@ -295,6 +315,10 @@
     1600,
     1131
   ],
+  "clinical-needs-800.webp": [
+    800,
+    349
+  ],
   "ux-08-2400.webp": [
     2400,
     1698
@@ -315,6 +339,10 @@
     800,
     1067
   ],
+  "cessation-findings-800.webp": [
+    800,
+    292
+  ],
   "forres-08-2400.webp": [
     1217,
     1622
@@ -327,9 +355,17 @@
     800,
     566
   ],
+  "smart-pairing-1600.webp": [
+    1600,
+    310
+  ],
   "architecture-01-2400.webp": [
     1600,
     1132
+  ],
+  "cessation-findings-2400.webp": [
+    2239,
+    816
   ],
   "forres-29-2400.webp": [
     200,
@@ -503,6 +539,10 @@
     800,
     234
   ],
+  "smart-tasks-800.webp": [
+    800,
+    330
+  ],
   "forres-16-800.webp": [
     800,
     563
@@ -619,6 +659,10 @@
     2400,
     1698
   ],
+  "smart-tasks-2400.webp": [
+    1323,
+    545
+  ],
   "forres-11-800.webp": [
     800,
     566
@@ -698,6 +742,10 @@
   "forres-12-1600.webp": [
     1600,
     1131
+  ],
+  "smart-tasks-1600.webp": [
+    1323,
+    545
   ],
   "forres-25-800.webp": [
     800,
@@ -790,5 +838,77 @@
   "forres-07-2400.webp": [
     2048,
     1193
+  ],
+  "crochet-carpet-1600.webp": [
+    1200,
+    1600
+  ],
+  "crochet-carpet-800.webp": [
+    800,
+    1067
+  ],
+  "crochet-carpet-2400.webp": [
+    1200,
+    1600
+  ],
+  "crochet-lamp-800.webp": [
+    800,
+    1067
+  ],
+  "crochet-lamp-detail-800.webp": [
+    800,
+    1067
+  ],
+  "crochet-lamp-detail-2400.webp": [
+    1536,
+    2048
+  ],
+  "crochet-lamp-1600.webp": [
+    1086,
+    1448
+  ],
+  "crochet-lamp-detail-1600.webp": [
+    1536,
+    2048
+  ],
+  "crochet-lamp-2400.webp": [
+    1086,
+    1448
+  ],
+  "nishabh-illustration-800.webp": [
+    800,
+    1000
+  ],
+  "nishabh-illustration-1600.webp": [
+    1600,
+    2000
+  ],
+  "nishabh-illustration-2400.webp": [
+    2400,
+    2999
+  ],
+  "nishabh-painting-800.webp": [
+    800,
+    1000
+  ],
+  "nishabh-painting-1600.webp": [
+    1600,
+    2000
+  ],
+  "nishabh-painting-2400.webp": [
+    2400,
+    2999
+  ],
+  "nishabh-brush-portrait-800.webp": [
+    800,
+    1000
+  ],
+  "nishabh-brush-portrait-1600.webp": [
+    1600,
+    2000
+  ],
+  "nishabh-brush-portrait-2400.webp": [
+    2400,
+    2999
   ]
 }

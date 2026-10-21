@@ -45,5 +45,9 @@ def collect(item):
 
 with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
     result = list(pool.map(collect, items))
+prior_manifest = ROOT / 'research/asset-manifest.json'
+if prior_manifest.exists():
+    # User-supplied photographs have no remote URL; retain their provenance.
+    result += [item for item in json.loads(prior_manifest.read_text()) if not item.get('url')]
 (ROOT / 'research/asset-manifest.json').write_text(json.dumps(result, indent=2))
 print(json.dumps({'downloaded': sum(x['status']=='downloaded' for x in result), 'unavailable': [x for x in result if x['status']!='downloaded']}, indent=2))

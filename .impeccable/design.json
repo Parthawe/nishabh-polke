@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-21T18:29:43.752586+00:00",
+  "generatedAt": "2026-10-21T19:11:22.360136+00:00",
   "title": "Design System: Nishabh Polke",
   "extensions": {
     "colorMeta": {
@@ -91,32 +91,32 @@
     },
     "typographyMeta": {
       "display": {
-        "displayName": "Display",
-        "purpose": "Home heading."
+        "displayName": "Personal display",
+        "purpose": "Home introduction in user-selected Hanken Grotesk, semibold (600). Self-hosted assets/fonts/hanken-grotesk-latin.woff2."
       },
       "headline": {
-        "displayName": "Headline",
-        "purpose": "Case-section headings."
+        "displayName": "Section headline",
+        "purpose": "Recurring section headings in Hanken Grotesk."
       },
       "title": {
-        "displayName": "Title",
-        "purpose": "Project headings."
+        "displayName": "Study title",
+        "purpose": "Work project headings in Hanken Grotesk, with a larger mobile scale."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Baseline reading text."
+        "purpose": "Onest baseline text."
       },
       "reading": {
-        "displayName": "Reading",
-        "purpose": "Case-study prose."
+        "displayName": "Research reading",
+        "purpose": "Longer prose and evidence notes, with generous leading."
       },
       "action": {
         "displayName": "Action",
-        "purpose": "Inline text links."
+        "purpose": "Text links and filled primary action."
       },
-      "label": {
-        "displayName": "Label",
-        "purpose": "Metadata, methods, and section navigation."
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Image captions, source details, and supporting labels."
       }
     },
     "shadows": [],
@@ -124,17 +124,32 @@
       {
         "name": "ease",
         "value": "cubic-bezier(.16,1,.3,1)",
-        "purpose": "Home heading entrance."
+        "purpose": "Navigation underlines, action arrows, and stitch motion."
       },
       {
-        "name": "intro-in",
-        "value": "0.8s; translateY(10px) to translateY(0)",
-        "purpose": "Single home heading entrance; disabled for reduced motion."
+        "name": "action-arrow",
+        "value": "transform .2s; translateX(3px)",
+        "purpose": "Short hover response for text and primary links."
       },
       {
-        "name": "cover-action",
-        "value": "opacity .2s ease",
-        "purpose": "Reveal the case-study action on pointer hover or keyboard focus."
+        "name": "lamp-view",
+        "value": "opacity .45 to 1; 250ms ease-out",
+        "purpose": "Photograph switch; skipped for reduced motion."
+      },
+      {
+        "name": "knit-loop",
+        "value": ".9s with 0\u2013200ms stagger; stroke-dashoffset 1 to 0",
+        "purpose": "One square stitches per deliberate click. The action resolves at 1250ms, or immediately with reduced motion."
+      },
+      {
+        "name": "pull-hook",
+        "value": ".85s; rotate(0) to rotate(-10deg) to rotate(0)",
+        "purpose": "Finite hook response, paused offscreen or in a hidden tab."
+      },
+      {
+        "name": "page-transition",
+        "value": "out .16s ease; in .22s ease",
+        "purpose": "Opacity-only document navigation where supported; disabled for reduced motion."
       }
     ],
     "breakpoints": [
@@ -143,101 +158,128 @@
         "value": "700px"
       },
       {
-        "name": "intermediate",
+        "name": "gutter-intermediate",
         "value": "1000px"
       },
       {
-        "name": "wide",
-        "value": "1600px"
+        "name": "composition-intermediate",
+        "value": "1100px"
       }
     ]
   },
   "components": [
     {
+      "name": "Primary link",
+      "kind": "button",
+      "refersTo": "primary-link",
+      "description": "The filled Home action leading to Work.",
+      "html": "<a class=\"ds-primary\" href=\"#work\">Explore my work <svg viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a>",
+      "css": ".ds-primary{font-family:var(--font-reading,\"Onest\",Arial,sans-serif);display:inline-flex;align-items:center;justify-content:center;gap:20px;padding:14px 24px;min-height:50px;border-radius:999px;background:var(--ink,#1d1d1f);color:var(--paper,#f5f5f7);font-size:14px;font-weight:500;text-decoration:none}.ds-primary svg{width:18px;height:18px;transition:transform .2s var(--ease,cubic-bezier(.16,1,.3,1))}.ds-primary:hover{background:#38383c}.ds-primary:hover svg{transform:translateX(3px)}.ds-primary:focus-visible{outline:2px solid var(--ink,#1d1d1f);outline-offset:6px}@media(prefers-reduced-motion:reduce){.ds-primary svg{transition:none}}"
+    },
+    {
       "name": "Text link",
       "kind": "button",
       "refersTo": "text-link",
       "description": "Inline navigation and download actions.",
-      "html": "<a class=\"ds-text-link\" href=\"#research\">Explore my research <svg viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a>",
-      "css": ".ds-text-link{font-family:-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Arial, sans-serif;color:var(--ink);display:inline-flex;align-items:center;gap:12px;min-height:44px;font-size:15px;font-weight:500;line-height:1.4;text-decoration:none}.ds-text-link svg{width:19px;height:19px}.ds-text-link:hover{text-decoration:underline;text-underline-offset:5px}.ds-text-link:focus-visible{outline:2px solid var(--ink);outline-offset:6px}"
+      "html": "<a class=\"ds-text\" href=\"#about\">A little about me <svg viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a>",
+      "css": ".ds-text{font-family:var(--font-reading,\"Onest\",Arial,sans-serif);color:var(--ink,#1d1d1f);display:inline-flex;align-items:center;gap:12px;min-height:44px;font-size:14px;font-weight:500;line-height:1.4;text-decoration:none}.ds-text svg{width:19px;height:19px;transition:transform .2s var(--ease,cubic-bezier(.16,1,.3,1))}.ds-text:hover{text-decoration:underline;text-underline-offset:5px}.ds-text:hover svg{transform:translateX(3px)}.ds-text:focus-visible{outline:2px solid var(--ink,#1d1d1f);outline-offset:6px}@media(prefers-reduced-motion:reduce){.ds-text svg{transition:none}}"
     },
     {
       "name": "Main navigation",
       "kind": "nav",
       "refersTo": "main-navigation",
-      "description": "Compact horizontal navigation with a current-item underline.",
-      "html": "<nav class=\"ds-main-nav\" aria-label=\"Main navigation\"><a href=\"#work\" aria-current=\"page\">Work</a><a href=\"#about\">About</a><a href=\"#contact\">Contact</a></nav>",
-      "css": ".ds-main-nav{font-family:-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Arial, sans-serif;color:var(--ink);background:var(--paper);display:flex;gap:32px;align-items:center}.ds-main-nav a{font-size:14px;color:var(--muted);padding:12px 0;text-decoration:none}.ds-main-nav a[aria-current],.ds-main-nav a:hover{color:var(--ink)}.ds-main-nav a[aria-current]::after{content:\"\";display:block;height:1px;background:currentColor;position:relative;top:5px}.ds-main-nav a:focus-visible{outline:2px solid var(--ink);outline-offset:6px}@media(max-width:700px){.ds-main-nav{gap:20px}.ds-main-nav a{font-size:12px}}"
+      "description": "Compact navigation with current-page and hover underlines.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Main navigation\"><a href=\"#home\" aria-current=\"page\">Home</a><a href=\"#work\">Work</a><a href=\"#about\">About</a><a href=\"#contact\">Contact</a></nav>",
+      "css": ".ds-nav{font-family:var(--font-reading,\"Onest\",Arial,sans-serif);display:flex;gap:28px;background:var(--paper,#f5f5f7)}.ds-nav a{position:relative;color:var(--muted,#626267);padding:12px 0;text-decoration:none;font-size:13px}.ds-nav a:hover,.ds-nav a[aria-current]{color:var(--ink,#1d1d1f)}.ds-nav a::after{content:\"\";position:absolute;left:0;right:0;bottom:7px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .2s var(--ease,cubic-bezier(.16,1,.3,1))}.ds-nav a:hover::after,.ds-nav a[aria-current]::after{transform:scaleX(1)}.ds-nav a:focus-visible{outline:2px solid var(--ink,#1d1d1f);outline-offset:6px}@media(max-width:700px){.ds-nav{gap:15px}.ds-nav a{font-size:11px}}@media(prefers-reduced-motion:reduce){.ds-nav a::after{transition:none}}"
     },
     {
-      "name": "Case navigation",
-      "kind": "nav",
-      "refersTo": "case-navigation",
-      "description": "Scrollable links to case-study sections.",
-      "html": "<nav class=\"ds-case-nav\" aria-label=\"Case study sections\"><a href=\"#overview\">Overview</a><a href=\"#approach\">Approach</a><a href=\"#findings\">Findings</a><a href=\"#outcome\">Outcome</a><a href=\"#artifacts\">Artifacts</a></nav>",
-      "css": ".ds-case-nav{font-family:-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Arial, sans-serif;color:var(--ink);display:flex;gap:32px;padding:28px 0;border-bottom:1px solid var(--line);background:var(--paper);overflow-x:auto;scrollbar-width:thin}.ds-case-nav a{font-size:13px;padding:7px 0;white-space:nowrap;color:inherit;text-decoration:none}.ds-case-nav a:hover{text-decoration:underline;text-underline-offset:5px}.ds-case-nav a:focus-visible{outline:2px solid var(--ink);outline-offset:6px}@media(max-width:700px){.ds-case-nav{gap:26px;padding:12px 0}.ds-case-nav a{font-size:12px}}"
+      "name": "Research project text",
+      "kind": "card",
+      "refersTo": "research-project",
+      "description": "Open project title and contribution beneath the rounded image; all four projects remain visible.",
+      "html": "<article class=\"ds-project\"><h3>A toolkit for conversations in Forres.</h3><a class=\"ds-project-open\" href=\"#forres\">Read case study <svg viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a><div class=\"ds-project-detail\"><h4>The contribution</h4><p>A puzzle and discussion guide, refined with stakeholders and handed over to FACT.</p></div></article>",
+      "css": ".ds-project{font-family:var(--font-reading,\"Onest\",Arial,sans-serif);color:var(--ink,#1d1d1f)}.ds-project h3{font-family:var(--font-display,\"Hanken Grotesk\",Arial,sans-serif);font-size:26px;font-weight:600;line-height:1.16;letter-spacing:-.025em;margin:0}.ds-project-open{display:flex;align-items:center;gap:9px;color:inherit;font-size:12px;min-height:40px;margin-top:12px;text-decoration:none}.ds-project-open svg{width:17px;height:17px}.ds-project-open:hover{text-decoration:underline;text-underline-offset:5px}.ds-project-open:focus-visible{outline:2px solid var(--ink,#1d1d1f);outline-offset:6px}.ds-project-detail{border-top:1px solid var(--line,#d8d8dc);padding-top:20px;margin-top:20px}.ds-project h4{font-size:12px;font-weight:500;margin:0 0 9px}.ds-project p{font-size:16px;line-height:1.8;margin:0}@media(max-width:700px){.ds-project h3{font-size:29px}}"
     },
     {
       "name": "Artifact disclosure",
       "kind": "custom",
       "refersTo": "artifact-disclosure",
-      "description": "Native disclosure for the complete research gallery.",
-      "html": "<details class=\"ds-disclosure\"><summary>View all research artifacts <span class=\"ds-details-plus\" aria-hidden=\"true\">+</span></summary><p class=\"ds-disclosure-body\">Original project documentation</p></details>",
-      "css": ".ds-disclosure{font-family:-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Arial, sans-serif;color:var(--ink);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.ds-disclosure summary{display:flex;justify-content:space-between;align-items:center;cursor:pointer;min-height:56px;padding:16px 0;font-size:14px;list-style:none}.ds-disclosure summary::-webkit-details-marker{display:none}.ds-details-plus{font-size:24px;font-weight:300;line-height:1}.ds-disclosure[open] .ds-details-plus{transform:rotate(45deg)}.ds-disclosure summary:focus-visible{outline:2px solid var(--ink);outline-offset:6px}.ds-disclosure-body{font-size:13px;color:var(--muted);margin:0;padding:20px 0 36px}"
+      "description": "Native disclosure for the full evidence archive.",
+      "html": "<details class=\"ds-disclosure\"><summary>View all research artifacts <span class=\"ds-plus\" aria-hidden=\"true\">+</span></summary><p class=\"ds-disclosure-body\">Original project documentation</p></details>",
+      "css": ".ds-disclosure{font-family:var(--font-reading,\"Onest\",Arial,sans-serif);color:var(--ink,#1d1d1f);border-top:1px solid var(--line,#d8d8dc);border-bottom:1px solid var(--line,#d8d8dc)}.ds-disclosure summary{display:flex;justify-content:space-between;align-items:center;cursor:pointer;min-height:56px;padding:16px 0;font-size:14px;list-style:none}.ds-disclosure summary::-webkit-details-marker{display:none}.ds-plus{font-size:24px;font-weight:300;line-height:1}.ds-disclosure[open] .ds-plus{transform:rotate(45deg)}.ds-disclosure summary:hover{color:var(--ink,#1d1d1f)}.ds-disclosure summary:focus-visible{outline:2px solid var(--ink,#1d1d1f);outline-offset:6px}.ds-disclosure-body{font-size:13px;color:var(--muted,#626267);margin:0;padding:20px 0 36px}"
     },
     {
       "name": "Download row",
       "kind": "custom",
       "refersTo": "download-row",
-      "description": "A document link with secondary file details.",
-      "html": "<a class=\"ds-download\" href=\"#portfolio\"><span><strong>UX portfolio</strong><small>Original project documentation</small></span><svg viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a>",
-      "css": ".ds-download{font-family:-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Arial, sans-serif;color:var(--ink);display:flex;justify-content:space-between;gap:20px;align-items:center;padding:24px 0;border-bottom:1px solid var(--line);text-decoration:none}.ds-download strong{font-size:17px;font-weight:500}.ds-download small{display:block;color:var(--muted);font-size:12px;margin-top:6px}.ds-download svg{width:22px;height:22px;flex:none}.ds-download:hover strong{text-decoration:underline;text-underline-offset:5px}.ds-download:focus-visible{outline:2px solid var(--ink);outline-offset:6px}"
+      "description": "Document title and original-file details.",
+      "html": "<a class=\"ds-download\" href=\"#portfolio\"><span><strong>UX portfolio</strong><small>17 pages \u00b7 PDF \u00b7 30.7 MB</small></span><svg viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a>",
+      "css": ".ds-download{font-family:var(--font-reading,\"Onest\",Arial,sans-serif);color:var(--ink,#1d1d1f);display:flex;justify-content:space-between;gap:20px;align-items:center;padding:24px 0;border-bottom:1px solid var(--line,#d8d8dc);text-decoration:none}.ds-download strong{font-size:17px;font-weight:500}.ds-download small{display:block;color:var(--muted,#626267);font-size:12px;margin-top:6px}.ds-download svg{width:22px;height:22px;flex:none}.ds-download:hover strong{text-decoration:underline;text-underline-offset:5px}.ds-download:focus-visible{outline:2px solid var(--ink,#1d1d1f);outline-offset:6px}"
+    },
+    {
+      "name": "Stitch action",
+      "kind": "button",
+      "refersTo": "stitch-button",
+      "description": "The finite crochet-study action; JavaScript supplies progress and replay.",
+      "html": "<button class=\"ds-stitch\" type=\"button\">Make a few stitches <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 5v14M5 12h14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></button>",
+      "css": ".ds-stitch{font-family:var(--font-reading,\"Onest\",Arial,sans-serif);display:flex;gap:20px;align-items:center;padding:12px 19px;border:1px solid var(--line,#d8d8dc);border-radius:999px;background:none;color:var(--ink,#1d1d1f);font-size:14px;cursor:pointer;min-height:48px}.ds-stitch svg{width:18px;height:18px}.ds-stitch:hover{background:var(--surface,#ececee)}.ds-stitch:focus-visible{outline:2px solid var(--ink,#1d1d1f);outline-offset:6px}.ds-stitch:disabled{cursor:wait;color:var(--muted,#626267)}"
+    },
+    {
+      "name": "Lamp view controls",
+      "kind": "button",
+      "refersTo": "lamp-view-button",
+      "description": "Pressed-state controls for the two supplied lamp photographs.",
+      "html": "<div class=\"ds-lamp\" aria-label=\"Lamp photograph views\"><button type=\"button\" aria-pressed=\"true\">Pendant view</button><button type=\"button\" aria-pressed=\"false\">Stitch detail</button></div>",
+      "css": ".ds-lamp{display:flex;align-items:center;gap:3px;min-height:40px;background:var(--surface,#ececee);padding:4px;border-radius:999px}.ds-lamp button{font-family:var(--font-reading,\"Onest\",Arial,sans-serif);border:0;background:none;padding:9px 17px;border-radius:999px;min-height:40px;cursor:pointer;font-size:13px;color:var(--muted,#626267)}.ds-lamp button[aria-pressed=true]{background:var(--ink,#1d1d1f);color:var(--paper,#f5f5f7);text-decoration:none}.ds-lamp button:not([aria-pressed=true]):hover{color:var(--ink,#1d1d1f)}.ds-lamp button:focus-visible{outline:2px solid var(--ink,#1d1d1f);outline-offset:6px}"
     },
     {
       "name": "Viewer button",
       "kind": "button",
       "refersTo": "viewer-button",
       "description": "Unfilled controls in the image-viewer toolbar.",
-      "html": "<button class=\"ds-viewer-button\" type=\"button\">Zoom in</button>",
-      "css": ".ds-viewer-button{font-family:-apple-system, BlinkMacSystemFont, \"Helvetica Neue\", Arial, sans-serif;color:var(--ink);cursor:pointer;background:none;border:0;min-width:44px;min-height:44px;font-size:13px}.ds-viewer-button:focus-visible{outline:2px solid var(--ink);outline-offset:6px}"
+      "html": "<button class=\"ds-viewer\" type=\"button\">Zoom in</button>",
+      "css": ".ds-viewer{font-family:var(--font-reading,\"Onest\",Arial,sans-serif);color:var(--ink,#1d1d1f);cursor:pointer;background:none;border:0;border-radius:999px;min-width:44px;min-height:44px;font-size:13px}.ds-viewer:hover{color:var(--ink,#1d1d1f)}.ds-viewer:focus-visible{outline:2px solid var(--ink,#1d1d1f);outline-offset:6px}.ds-viewer:disabled{cursor:default;color:var(--muted,#626267)}"
     }
   ],
   "narrative": {
-    "northStar": "The interface recedes",
-    "overview": "The interface uses the user-approved Apple-like monochrome direction: near-white paper, dark type, generous spacing, and original-color project artifacts. System sans-serif typography is an explicit brand choice for both display and reading text.\n\nResearch images carry the visual detail. The surrounding interface stays flat, with hairline separators, clear headings, and text actions. Case studies provide room for reading and inspection, including enlargement and original-file downloads.",
+    "northStar": "A researcher who makes",
+    "overview": "The portfolio keeps the user-approved Apple-like monochrome interface, generous spacing, and rounded image frames. The user-selected Hanken Grotesk gives headings a clear, personal voice; Onest supports the longer research reading. Original project artifacts and personal photographs keep their own colors. The Home portrait is a generated painted-style transformation of the supplied source portrait.\n\nHome introduces Nishabh and his making practice. Home and Work show all four documented research projects together; Work adds contribution, role, and method details for comparison and inspection. Both use open layouts, hairline separators, and direct actions. The crochet illustration adds a small, deliberate interaction alongside the actual work-in-progress photographs.",
     "keyCharacteristics": [
       "Near-white paper and dark ink around original-color imagery.",
-      "System sans-serif throughout, with tight semibold headings.",
-      "Open image-and-text layouts, square edges, and hairline dividers.",
-      "Visible keyboard focus and restrained motion with a reduced-motion override."
+      "Expressive Hanken Grotesk headings with Onest reading text.",
+      "Open compositions, rounded image frames, pill controls, and hairline dividers.",
+      "Keyboard access, ordinary-link fallbacks, and reduced-motion support."
     ],
     "rules": [
       {
         "name": "Original Color",
-        "body": "Keep the interface monochrome and preserve the original colors in research imagery.",
+        "body": "Keep interface controls monochrome and preserve the colors of source imagery. The brown crochet drawing belongs to the making illustration, not the action palette.",
         "section": "colors"
       },
       {
-        "name": "One Type Family",
-        "body": "Use the system sans-serif stack for display, body, labels, and controls.",
+        "name": "Two Type Roles",
+        "body": "Use Hanken Grotesk for headings and Onest for reading text and controls. Load the local font files with swap behavior.",
         "section": "typography"
       },
       {
         "name": "Flat Surfaces",
-        "body": "Use spacing, hairline rules, and surface contrast for hierarchy; the built interface uses no box shadows.",
+        "body": "Separate regions with space, hairline rules, and surface contrast. The built interface uses no box shadows.",
         "section": "elevation"
       }
     ],
     "dos": [
-      "Do keep project headings before context and date metadata.",
-      "Do preserve original artifact colors and offer enlargement when detail needs inspection.",
-      "Do use the shared container and collapse paired content into a single column on small screens.",
-      "Do retain visible keyboard focus, working hidden states, and the reduced-motion override."
+      "Do preserve original artifact and photograph colors and offer enlargement for detail.",
+      "Do use Hanken Grotesk for headings and Onest for reading text, labels, and controls.",
+      "Do use the shared container and the four-column, two-column, then one-column project grids.",
+      "Do retain visible focus, accessible loading and failure states, and reduced-motion support.",
+      "Do keep the stitch study distinct from the real carpet\u2019s progress.",
+      "Do describe the hero as a painted-style portrait transformation; preserve the supplied original photographs and research artifacts."
     ],
     "donts": [
       "Don't add decorative gradients, glass, glows, or floating card shadows.",
-      "Don't substitute a display font for the user-approved system sans-serif stack.",
-      "Don't convert open project rows into rounded cards or recolor the original artifacts."
+      "Don't replace the user-selected font pairing with earlier type explorations or system-only typography.",
+      "Don't add filled outer cards around the project grid items or recolor source research imagery.",
+      "Don't hide projects behind selectors or a JavaScript-only interface."
     ]
   }
 }

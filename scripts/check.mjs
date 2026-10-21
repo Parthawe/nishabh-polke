@@ -44,9 +44,14 @@ for(const file of pages){
   }
 }
 for(const file of files){assert.ok((await stat(file)).size<100*1024*1024,`GitHub file limit: ${file}`);}
-assert.equal(pages.length,7,'Six portfolio pages plus custom 404');
+assert.equal(pages.length,8,'Home, Work, About, four cases and custom 404');
 const home=htmlCache.get(path.join(root,'index.html'));
-for(const slug of ['forres','endoscopic-device','tobacco-cessation','smart-home'])assert.ok(home.includes(`work/${slug}/`));
+const work=htmlCache.get(path.join(root,'work/index.html'));
+assert.ok(home.includes('making-section')&&!home.includes('data-research-project'),'Home has its own personal content');
+for(const slug of ['forres','endoscopic-device','tobacco-cessation','smart-home'])assert.ok(work.includes(`./${slug}/`));
+assert.equal((work.match(/data-research-project=/g)||[]).length,4,'Four visible research projects');
+assert.equal((home.match(/<article class="home-project"/g)||[]).length,4,'Four projects together on Home');
+assert.ok(home.includes('data-crochet')&&home.includes('data-lamp'),'Personal making interactions included');
 for(const name of ['nishabh-polke-ux-portfolio.pdf','nishabh-polke-architecture-portfolio.pdf','forres-stakeholder-recommendation.pdf']){
   const buffer=await readFile(path.join(root,'assets/downloads',name));assert.equal(buffer.subarray(0,5).toString(),'%PDF-');
 }

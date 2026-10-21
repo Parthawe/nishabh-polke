@@ -1,6 +1,6 @@
 ---
 name: Nishabh Polke
-description: A restrained research portfolio built around original evidence.
+description: A personal research portfolio with original evidence and a making practice.
 colors:
   paper: "#f5f5f7"
   ink: "#1d1d1f"
@@ -10,53 +10,65 @@ colors:
   white: "#fff"
 typography:
   display:
-    fontFamily: '-apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif'
-    fontSize: "clamp(48px, 6.2vw, 88px)"
+    fontFamily: '"Hanken Grotesk", Arial, sans-serif'
+    fontSize: "clamp(64px, 7.2vw, 96px)"
     fontWeight: 600
-    lineHeight: 1.1
-    letterSpacing: "-0.035em"
+    lineHeight: 0.98
+    letterSpacing: "-0.04em"
   headline:
-    fontFamily: '-apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif'
-    fontSize: "30px"
+    fontFamily: '"Hanken Grotesk", Arial, sans-serif'
+    fontSize: "clamp(32px, 3.3vw, 46px)"
     fontWeight: 600
-    lineHeight: 1.15
-    letterSpacing: "-0.035em"
+    letterSpacing: "-0.025em"
   title:
-    fontFamily: '-apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif'
-    fontSize: "34px"
+    fontFamily: '"Hanken Grotesk", Arial, sans-serif'
+    fontSize: "26px"
     fontWeight: 600
-    lineHeight: 1.1
-    letterSpacing: "-0.035em"
+    lineHeight: 1.16
+    letterSpacing: "-0.025em"
   body:
-    fontFamily: '-apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif'
-    fontSize: "17px"
+    fontFamily: '"Onest", Arial, sans-serif'
+    fontSize: "18px"
     fontWeight: 400
     lineHeight: 1.6
   reading:
-    fontFamily: '-apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif'
+    fontFamily: '"Onest", Arial, sans-serif'
     fontSize: "18px"
     fontWeight: 400
     lineHeight: 1.8
   action:
-    fontFamily: '-apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif'
-    fontSize: "15px"
+    fontFamily: '"Onest", Arial, sans-serif'
+    fontSize: "14px"
     fontWeight: 500
     lineHeight: 1.4
-  label:
-    fontFamily: '-apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif'
-    fontSize: "13px"
+  caption:
+    fontFamily: '"Onest", Arial, sans-serif'
+    fontSize: "12px"
     fontWeight: 400
-    lineHeight: 1.6
 rounded:
-  square: "0px"
+  image: "24px"
+  image-compact: "20px"
+  artifact: "14px"
+  panel: "28px"
+  pill: "999px"
+  footer: "32px"
+  footer-compact: "24px"
+  flush: "0px"
 spacing:
   compact: "12px"
-  inset: "16px"
+  inset: "20px"
   regular: "24px"
-  group: "32px"
-  section-small: "48px"
-  section: "80px"
+  grid: "26px"
+  group: "30px"
+  composition: "45px"
+  section: "65px"
 components:
+  primary-link:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
+    rounded: "{rounded.pill}"
+    padding: "14px 24px"
+    typography: "{typography.action}"
   text-link:
     textColor: "{colors.ink}"
     typography: "{typography.action}"
@@ -64,129 +76,161 @@ components:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.muted}"
     padding: "12px 0"
-  case-navigation:
-    backgroundColor: "{colors.paper}"
+  research-project:
     textColor: "{colors.ink}"
-    padding: "28px 0"
+    typography: "{typography.title}"
+  image-frame:
+    backgroundColor: "{colors.surface}"
+    rounded: "{rounded.image}"
+  artifact-frame:
+    backgroundColor: "{colors.white}"
+    rounded: "{rounded.artifact}"
   artifact-disclosure:
     textColor: "{colors.ink}"
     padding: "16px 0"
   download-row:
     textColor: "{colors.ink}"
     padding: "24px 0"
+  stitch-button:
+    textColor: "{colors.ink}"
+    rounded: "{rounded.pill}"
+    padding: "12px 19px"
+  lamp-view-button:
+    textColor: "{colors.muted}"
+    rounded: "{rounded.pill}"
+    padding: "9px 17px"
+  lamp-view-button-active:
+    textColor: "{colors.paper}"
+    backgroundColor: "{colors.ink}"
+    rounded: "{rounded.pill}"
+    padding: "9px 17px"
   viewer-button:
     textColor: "{colors.ink}"
+    rounded: "{rounded.pill}"
 ---
 
 # Design System: Nishabh Polke
 
 ## Overview
 
-**Creative North Star: "The interface recedes"**
+**Creative North Star: "A researcher who makes"**
 
-The interface uses the user-approved Apple-like monochrome direction: near-white paper, dark type, generous spacing, and original-color project artifacts. System sans-serif typography is an explicit brand choice for both display and reading text.
+The portfolio keeps the user-approved Apple-like monochrome interface, generous spacing, and rounded image frames. The user-selected Hanken Grotesk gives headings a clear, personal voice; Onest supports the longer research reading. Original project artifacts and personal photographs keep their own colors. The Home portrait is a generated painted-style transformation of the supplied source portrait.
 
-Research images carry the visual detail. The surrounding interface stays flat, with hairline separators, clear headings, and text actions. Case studies provide room for reading and inspection, including enlargement and original-file downloads.
+Home introduces Nishabh and his making practice. Home and Work show all four documented research projects together; Work adds contribution, role, and method details for comparison and inspection. Both use open layouts, hairline separators, and direct actions. The crochet illustration adds a small, deliberate interaction alongside the actual work-in-progress photographs.
 
 **Key Characteristics:**
 
 - Near-white paper and dark ink around original-color imagery.
-- System sans-serif throughout, with tight semibold headings.
-- Open image-and-text layouts, square edges, and hairline dividers.
-- Visible keyboard focus and restrained motion with a reduced-motion override.
+- Expressive Hanken Grotesk headings with Onest reading text.
+- Open compositions, rounded image frames, pill controls, and hairline dividers.
+- Keyboard access, ordinary-link fallbacks, and reduced-motion support.
 
 ## Colors
 
-The interface uses cool neutrals; research artifacts retain their own palettes.
+Cool neutrals frame the work; artifacts and photography supply their own color.
 
 ### Primary
 
-- **Ink** supplies headings, primary actions, active navigation, focus outlines, and the dark footer.
+- **Ink** supplies headings, pressed lamp controls, primary actions, focus outlines, and the dark contact footer.
 
 ### Neutral
 
 - **Paper** is the page and viewer background.
-- **Muted** is the default paragraph and secondary-label color.
-- **Line** separates navigation, content rows, disclosures, and viewer regions.
+- **Muted** is the paragraph and supporting-label color.
+- **Line** separates navigation, sections, disclosures, and viewer regions.
 - **Surface** backs project imagery.
-- **White** backs contained artifact images.
+- **White** backs contained research artifacts.
 
-**The Original Color Rule.** Keep the interface monochrome and preserve the original colors in research imagery.
+**The Original Color Rule.** Keep interface controls monochrome and preserve the colors of source imagery. The brown crochet drawing belongs to the making illustration, not the action palette.
 
 ## Typography
 
-**Display Font:** system sans-serif, using the frontmatter stack.
-**Body Font:** the same system sans-serif stack.
+**Display Font:** Hanken Grotesk, with Arial and sans-serif fallbacks.
+**Body Font:** Onest, with Arial and sans-serif fallbacks.
 
-Semibold, tightly tracked headings establish hierarchy. Reading text uses regular weight, wider leading, and muted ink. Labels stay in sentence case. There is no decorative typeface or separate monospace role.
+Both variable fonts are self-hosted and preloaded by the page template: `assets/fonts/hanken-grotesk-latin.woff2` for display and `assets/fonts/onest-latin.woff2` for reading. Their OFL license files live beside them. The user selected Hanken Grotesk after comparing display options; this replaces the initial system-only direction. Headings use semibold weight (600); reading text stays regular and generously led.
 
 ### Hierarchy
 
-- **Display** is the large home heading. On screens up to (700px), it uses `clamp(38px, 8vw, 55px)` with line height (1.08).
-- **Headline** is the case-section heading, with a narrow heading column. It reduces to (27px) on small screens.
-- **Title** is the recurring project heading. Project rows reduce to (29px) at the intermediate breakpoint and (28px) on small screens.
-- **Body** is the baseline text size; **reading** is the case-study prose role, contained within (720px). Reading text reduces to (17px) on small screens while keeping its line height.
-- **Action** is the inline text-link role. **Label** covers project metadata, methods, and section navigation; small captions and source notes use (12px).
+- **Display** introduces Nishabh on Home. Small screens use `clamp(66px, 17vw, 88px)` with line height (1).
+- **Headline** is the recurring section scale. Research case titles use `clamp(42px, 5vw, 70px)`; Work uses `clamp(46px, 5.8vw, 76px)`.
+- **Title** is the Work project heading. Home project titles use (25px) on desktop, (28px) on tablet, and (29px) on mobile. Work titles also become (29px) on mobile. Case-section headings use (28px).
+- **Body** is the baseline. **Reading** covers study prose and explanatory notes; case reading columns are capped at (65ch). Case prose becomes (17px) with line height (1.85) on small screens.
+- **Action** covers text links and the primary link. Navigation uses (13px); **caption** covers source labels and image captions. Keep labels in sentence case.
 
-**The One Type Family Rule.** Use the system sans-serif stack for display, body, labels, and controls.
+**The Two Type Roles Rule.** Use Hanken Grotesk for headings and Onest for reading text and controls. Load the local font files with swap behavior.
 
 ## Layout
 
-Content is centered within a maximum width of (1120px). Shared side gutters are (48px), become (32px) at a maximum viewport width of (1000px), and become (20px) at (700px).
+The shared container is centered with a maximum width of (1200px). Side gutters are (48px), becoming (32px) at a viewport maximum of (1000px) and (20px) at (700px). Most reading and image compositions use asymmetric columns with generous gaps and thin section dividers.
 
-Use open image-and-text compositions. Project rows pair an image and copy; case sections pair a narrower heading column with a wider reading column (1:2). Evidence appears in pairs, with a three-column artifact gallery inside a disclosure. These content grids stack at the small-screen breakpoint. Project facts shift from four columns to two at the intermediate breakpoint.
+Home pairs an introduction and the sourced painted-style portrait, then shows all four research projects, personal making, and background. The portrait uses containment to preserve the composition. The hero stacks on small screens. The making photographs form two columns with a (50px) gap and stack at the small-screen breakpoint.
 
-Section spacing is generous, with case sections using the section spacing token on desktop and the section-small token on mobile. Preserve heading-before-metadata order. Let smaller supporting text follow the content it describes.
+Home and Work use four equal project columns with a (26px) gap above (1100px). From (701px) through (1100px), both use two columns with (45px) row and (28px) column gaps. At (700px) and below, both use one column with a (40px) gap. All projects remain in document flow. Work places the portfolio download below the full grid. Case pages pair an opening artifact with a research briefing, then section headings and reading text. The desktop section grid uses a (250px) heading column and a reading column capped at (700px). Evidence pairs a large artifact with a short reading note. These compositions stack on small screens.
+
+A three-step research trail expresses an actual sequence; the expandable archive uses three artifact columns. Both become a single column on small screens. Section spacing varies with content; repeated case sections use (65px) block padding on desktop and (45px) on small screens.
 
 ## Elevation & Depth
 
-The interface is flat. Hairline borders, open space, and the dark contact footer separate regions. The image viewer uses a dark translucent backdrop (`rgb(0 0 0 / .82)`) to establish a modal layer.
+The interface is flat. Hairlines, whitespace, and tonal surfaces separate regions. The dark footer closes each page. The native image dialog uses a translucent black backdrop (`rgb(0 0 0 / .82)`) to establish the modal layer.
 
-**The Flat Surfaces Rule.** Use spacing, hairline rules, and surface contrast for hierarchy; the built interface uses no box shadows.
+**The Flat Surfaces Rule.** Separate regions with space, hairline rules, and surface contrast. The built interface uses no box shadows.
 
 ## Shapes
 
-Images, evidence surfaces, controls, and the viewer use square edges. Separators are thin strokes (1px). Inline SVG arrows and enlargement marks use restrained strokes; they signal actions without adding decorative iconography.
+Large image frames use the image radius, reducing to the compact image radius on mobile. Research artifact frames and research-trail images use the smaller artifact radius. Primary actions, lamp controls, stitch controls, and image-action labels use pills. The dialog uses the panel radius on desktop and sits flush at the viewport edges on mobile. The footer has rounded top corners, using the footer radius on desktop and compact footer radius on mobile.
+
+Thin separators (1px) establish boundaries. Project text stays outside the image frames without a filled outer card. Inline SVG arrows and enlargement marks identify actions. The crochet study uses yarn loops, six square motifs, and a hook.
 
 ## Components
 
-### Text actions
+### Links and primary action
 
-Text actions combine a short label and inline SVG arrow, with a compact gap and a minimum target height of (44px). Hover adds an underline. Keyboard focus uses an ink outline (2px) with an offset (6px); the footer uses paper for the outline. Keep actual links as anchors.
+The primary action is a filled ink pill with paper text, an inline arrow, and a minimum height of (50px). Hover darkens the fill. Text links have no filled surface, use a minimum height of (44px), and underline on hover. Their arrows move (3px) over (.2s). Keyboard focus uses a (2px) ink outline offset by (6px); the dark footer uses paper for focus.
 
 ### Navigation
 
-The header pairs a compact name with horizontal navigation. Navigation labels use muted text at rest, ink on hover or current state, and a fine underline for the current item. The header height changes from (80px) to (72px) on small screens. Case-section navigation is sticky, stays on paper, and scrolls horizontally when needed.
+The header pairs the Hanken Grotesk name with Home, Work, About, and Contact. Muted labels become ink on hover or current state. A fine underline marks the current page; a short underline transition provides hover feedback. The header changes from (80px) to (72px) on small screens, with tighter navigation spacing. Case navigation stays sticky on paper and scrolls horizontally when needed.
 
-### Project rows and evidence
+### Research project grids
 
-Project entries remain open rows with square images, headings before metadata, research questions, roles, and methods. Image actions appear on cover hover or keyboard focus; touch devices omit that overlay. Evidence uses contained images on white, short captions, enlargement links, and original-file downloads. Keep diagrams contained when cropping would lose information.
+Both Home and Work show all four projects together in the responsive grid. Home pairs rounded project images with a linked title, output summary, and context. Work gives each project a title and case-study link, a rounded inspectable image, a caption, and contribution, role, and methods. Work separates these details with a hairline. All project links use ordinary anchors and all project content is available without JavaScript. Study-tab switching is absent from the current interface.
 
-### Artifact disclosure
+### Research imagery and archive
 
-Native details and summary elements reveal the complete artifact gallery. Hairlines mark the disclosure boundary. The summary has a minimum height of (56px); its plus rotates when open. The gallery follows the same responsive stacking as other evidence.
+Research artifacts sit in open compositions with a caption, an inspection action, and an original-file link. Contain diagrams when cropping would lose evidence; photographs can fill their frames. Field notes pair an observed finding and design implication with the relevant artifact. Native details and summary reveal the complete archive. Hairlines frame the disclosure, and its plus rotates when open. Preserve source credits and distinguish proposals, delivered artifacts, and later reported developments.
+
+### Personal making
+
+Use the supplied carpet-in-progress photograph and the two lamp photographs. The lamp view buttons sit in a neutral pill group. The pressed view has ink fill and paper text. They switch between pendant and stitch-detail views, expose their pressed state, and update enlargement and original-file targets. The stitch action is an outlined pill that gains a neutral surface on hover. Without JavaScript, a direct stitch-detail image link remains available.
+
+The SVG stitch study has six squares and starts with two stitched when enhanced. Each click completes one square; the final state offers a replay. It uses a short finite animation, a disabled control while working, a polite status message, and offscreen/tab-hidden animation pausing. Reduced motion completes each step without animated stitching. Without JavaScript, the complete illustration is visible and the action stays hidden. The illustration never represents actual carpet completion.
 
 ### Download rows
 
-Download links pair a document title and secondary file details with an arrow. A thin bottom divider separates rows; hover underlines the title. File details stay smaller and muted.
+Document titles and smaller file details pair with an inline arrow. A thin bottom rule separates rows; hover underlines the title. Keep downloadable originals accessible alongside the web narrative.
 
 ### Image viewer
 
-The dialog has distinct toolbar, image stage, and caption regions. Its close and zoom buttons keep minimum targets of (44px). The desktop viewer leaves a (24px) outer margin and becomes full-screen on small screens. Loading and failure messages occupy the image stage; hidden messages must remain absent. Loading suppresses the pending image. Failure offers the original file. Zoom changes the image stage to a scrollable inspection view.
+The native dialog separates toolbar, image stage, and caption. Close and zoom controls retain (44px) targets. It leaves a (24px) outer margin on desktop and fills the viewport on small screens. Loading hides the pending image; failure offers the original file, including after a (20s) timeout. The zoomed stage is a focusable, scrollable region. Closing restores focus to the trigger. Modified clicks retain ordinary-link behavior; image links also work without JavaScript or dialog support.
 
-The home display heading has one short entrance movement (10px over .8s). The cover action fades over (.2s). Reduced-motion preferences remove animation, transitions, and smooth scrolling.
+Page navigation uses short opacity transitions. Lamp switching uses a (.25s) fade. Reduced-motion preferences remove CSS animation, transitions, and smooth scrolling; JavaScript also checks that preference before motion.
 
 ## Do's and Don'ts
 
 ### Do:
 
-- Do keep project headings before context and date metadata.
-- Do preserve original artifact colors and offer enlargement when detail needs inspection.
-- Do use the shared container and collapse paired content into a single column on small screens.
-- Do retain visible keyboard focus, working hidden states, and the reduced-motion override.
+- Do preserve original artifact and photograph colors and offer enlargement for detail.
+- Do use Hanken Grotesk for headings and Onest for reading text, labels, and controls.
+- Do use the shared container and the four-column, two-column, then one-column project grids.
+- Do retain visible focus, accessible loading and failure states, and reduced-motion support.
+- Do keep the stitch study distinct from the real carpet’s progress.
+- Do describe the hero as a painted-style portrait transformation; preserve the supplied original photographs and research artifacts.
 
 ### Don't:
 
 - Don't add decorative gradients, glass, glows, or floating card shadows.
-- Don't substitute a display font for the user-approved system sans-serif stack.
-- Don't convert open project rows into rounded cards or recolor the original artifacts.
+- Don't replace the user-selected font pairing with earlier type explorations or system-only typography.
+- Don't add filled outer cards around the project grid items or recolor source research imagery.
+- Don't hide projects behind selectors or a JavaScript-only interface.

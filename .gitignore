@@ -3,4 +3,8 @@ node_modules/
 dist/
 tmp/
 .impeccable/review/
+.impeccable/review-*/
 *.log
+
+.impeccable/font-preview/
+output/

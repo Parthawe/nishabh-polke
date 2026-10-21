@@ -20,11 +20,11 @@ Make four research projects readable as web case studies, retain original work a
 
 ## Brand Commitments
 
-Nishabh Polke is the published name. The user specified black and white, Apple-like minimalism, generous spacing, system sans-serif typography, compact navigation, restrained motion, and original colors in project imagery. Joel Bobby is the publishing precedent. These decisions were explicitly approved before implementation.
+Nishabh Polke is the published name. The user specified black and white, Apple-like minimalism, generous spacing, compact navigation, restrained motion, and original colors in project imagery. Joel Bobby is the publishing precedent. The user later requested distinctive typography, more designer personality, microinteractions, a separate Work page, and a crochet hobby section. The user selected Hanken Grotesk display with Onest reading text, then explicitly requested curved image frames and rounded controls as part of the Apple-like feel. All four studies must appear together on Home and Work without a study selector.
 
 ## Capabilities and Constraints
 
-Home, four case studies, and About. Local assets, accessible image enlargement, original PDF downloads, email and LinkedIn contact. No analytics, accounts, contact forms, invented résumé, availability, client names, or business-impact claims.
+Separate Home and Work pages, four case studies, and About. Local assets, accessible image enlargement, original PDF downloads, email and LinkedIn contact. No analytics, accounts, contact forms, invented résumé, availability, client names, or business-impact claims.
 
 ## Evidence on Hand
 
@@ -40,3 +40,7 @@ GSA 2024 project showcase and gallery; 17-page UX portfolio with smart-home, tob
 ## Accessibility & Inclusion
 
 Keyboard navigation, visible focus, reduced motion, readable HTML without JavaScript, descriptive links, contrast, and responsive diagrams with enlargement.
+
+## Personal Making
+
+The user supplied a carpet-in-progress photograph and two crochet-lamp photographs, and said crochet is the latest hobby. Home includes these actual images and a geometric stitch illustration with an interactive stitch sequence. Illustration state never represents actual project completion.
