@@ -103,6 +103,7 @@ await rm(output,{recursive:true,force:true});
 await mkdir(output,{recursive:true});
 await cp(path.join(root,'assets'),path.join(output,'assets'),{recursive:true});
 for(const file of ['styles.css','app.js','crochet-state.mjs','favicon.svg']) await cp(path.join(root,file),path.join(output,file));
+await writeFile(path.join(output,'app.js'),(await readFile(path.join(root,'app.js'),'utf8')).replace("from './crochet-state.mjs'",`from './crochet-state.mjs?v=${assetVersion}'`));
 await writeFile(path.join(output,'index.html'),home());
 await mkdir(path.join(output,'work'),{recursive:true});
 await writeFile(path.join(output,'work/index.html'),work());

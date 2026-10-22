@@ -39,7 +39,8 @@ The checker validates local paths and fragments, responsive image sources, page 
 - `src/content.mjs`: project copy, evidence captions, credits, and sources.
 - `src/render.mjs`: shared HTML layout and page composition.
 - `src/editorial.mjs`: research summaries, process trails, and artifact-reading notes.
-- `src/making.mjs`: personal making section and native SVG stitch illustration.
+- `src/making.mjs`: personal making section and shared crochet activity.
+- `src/crochet-geometry.mjs`: clustered stitch paths, chain joins, braided edging, and inline yarn styles.
 - `styles.css`: visual system, responsive layouts, focus, motion, and image-viewer states.
 - `app.js`: progressive image viewer, lamp photograph switch, and interactive stitch activity.
 - `crochet-state.mjs`: round colors, completion, recoverable reset, and undo/redo history.
@@ -82,3 +83,5 @@ Home and Work share an illustrated six-square pattern. Each square takes four ro
 Progress stays in the current tab’s session storage, including when moving between Home and Work. It is never sent to a server. Save pattern downloads a self-contained SVG containing the rounds made so far. The activity illustrates a pattern; it does not track the real carpet’s progress. Reduced motion removes the drawing animation. Without JavaScript, the complete illustration remains visible.
 
 Run `npm test` for the pattern-state tests, then `npm run prepare:pages` to build and check the published files.
+
+The stitch drawing uses clustered posts, V-shaped heads, chain joins, and a braided border. Strand details come from narrow paths within the yarn strokes. The illustrated structure was informed by [Yarnspirations’ guide to granny crochet](https://www.yarnspirations.com/blogs/how-to/guide-to-granny-crochet-squares-circles-hearts-stripes-and-more). This is an interactive illustration, not a counted crochet pattern. Each round forms clockwise over 760ms; the hook follows the active stitch. Holding repeats every 800ms, and interruption settles the drawing immediately.

@@ -1,5 +1,5 @@
 export const YARNS = ['#785642', '#343436', '#9c836e'];
-export const ROUND_NAMES = ['Center', 'Petals', 'Outer round', 'Edging'];
+export const ROUND_NAMES = ['Foundation', 'Clusters', 'Outer round', 'Edging'];
 const fresh = () => Array.from({length:6}, () => []);
 const copy = cells => cells.map(rounds => [...rounds]);
 const valid = cells => Array.isArray(cells) && cells.length === 6 && cells.every(rounds => Array.isArray(rounds) && rounds.length <= 4 && rounds.every(color => YARNS.includes(color)));

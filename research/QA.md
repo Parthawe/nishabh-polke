@@ -32,3 +32,12 @@ The image viewer opened, zoomed, closed by Escape and button, restored focus to 
 - Downloaded a partial SVG and parsed it as XML: round colors are retained, with no scripts or external references.
 - Reduced motion disables transition and drawing feedback; rounds still update immediately. Without JavaScript, the complete illustration stays visible and interactive controls stay hidden.
 - Console review found no warnings or errors. Independent finish review: ship; clean desktop and mobile captures are in the local review-v7 folder.
+
+
+## Yarn drawing refinement, 21 October 2026
+
+- Replaced ellipse loops with clustered post stitches, V-shaped heads, chain joins, and braided edging. Strand paths stay inside the existing yarn palette.
+- Verified sequential round formation, hook travel, 800ms held input, and undo/redo interruption in the browser. Runtime exception review found none.
+- Reviewed desktop and 390px mobile layouts. The stitch detail remains legible without horizontal overflow.
+- Reduced motion shows finished rounds immediately and hides the hook. Saved SVG parses with all yarn styles, no ellipses, no scripts, and no external references.
+- Finish reviewer: ship, with no material fixes. Reviewed still frames and animation code, rather than video.
