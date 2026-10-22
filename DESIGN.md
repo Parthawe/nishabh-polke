@@ -111,7 +111,7 @@ components:
   crochet-canvas:
     backgroundColor: "{colors.surface}"
     rounded: "{rounded.panel}"
-    padding: "28px 16px 20px"
+    padding: "20px 24px 24px"
   lamp-view-button:
     textColor: "{colors.muted}"
     rounded: "{rounded.pill}"
@@ -191,6 +191,8 @@ Home pairs an introduction and the sourced painted-style portrait, then shows al
 
 Home and Work show all four projects in two columns on desktop. Home uses (72px) row and (48px) column gaps; Work uses (80px) row and (48px) column gaps. From (701px) through (1100px), both keep two columns with (60px) row and (32px) column gaps. At (700px) and below, both use one column with a (52px) row gap. Project images use a (3:2) aspect ratio; the shared desktop container yields (576px) image widths at a (1440px) viewport. Responsive image sizes allow (600px) desktop delivery. All projects remain in document flow. Work places the portfolio download below the full grid. Case pages pair an opening artifact with a research briefing, then section headings and reading text. The desktop section grid uses a (250px) heading column and a reading column capped at (700px). Evidence pairs a large artifact with a short reading note. These compositions stack on small screens.
 
+The crochet activity pairs its canvas and controls in (1.15fr / 1fr) columns with a (64px) gap. The canvas uses (20px 24px 24px) padding. From (701px) through (1000px), the columns are equal with a (32px) gap and (16px) canvas padding. At (700px) and below, the activity stacks with a (24px) gap and (12px 16px 20px) canvas padding. The mobile canvas carries the tap-and-hold instruction; the repeated control heading and longer instruction are hidden.
+
 A three-step research trail expresses an actual sequence; the expandable archive uses three artifact columns. Both become a single column on small screens. Section spacing varies with content; repeated case sections use (65px) block padding on desktop and (45px) on small screens.
 
 ## Elevation & Depth
@@ -234,9 +236,13 @@ Research artifacts sit in open compositions with a caption, an inspection action
 
 Use the supplied carpet-in-progress photograph and the two lamp photographs. The lamp view buttons sit in a neutral pill group. The pressed view has ink fill and paper text. They switch between pendant and stitch-detail views, expose their pressed state, and update enlargement and original-file targets. Without JavaScript, a direct stitch-detail image link remains available. Lamp selection decodes the next image before committing the view and reports load failure without losing the previous image.
 
-The SVG activity appears on Home and Work and starts at zero of six stitched squares when enhanced. Six focusable SVG square buttons support tap, Enter, and Space to stitch or unpick. Arrow keys move between squares; Home and End jump to the first and last square. Each square exposes a label, pressed state, and working state. A visible counter tracks the illustrated pattern.
+The SVG activity appears on Home and Work. Six squares each build through four rounds: Center, Petals, Outer round, and Edging. A new session starts at zero of (24) rounds. Three tonal yarn choices apply to the next round; each completed round keeps its chosen color. A native progress element and visible round and completed-square counters track the pattern. The active-square label and four colored dots show the next round and retained yarn colors.
 
-Three tonal yarn choices update the drawing and expose a pressed state. Stitch next square selects the next unfinished square; after six, it becomes Start again. Undo last square reverses the latest completed square. The main stitch action is an ink-filled pill; Undo is an underlined text button. Working states prevent conflicting edits. Finite stitching and hook motion pause offscreen or in a hidden tab; reduced motion completes the change without animated stitching. Polite status messages announce updates. Without JavaScript, the complete illustration remains visible and all game controls and the counter stay hidden. The activity never represents actual carpet completion.
+Tap, Enter, or Space adds one round to a square. Holding a square or the main stitch button starts stitching after (380ms), then repeats every (220ms). Arrow keys move roving focus between squares; Home and End select the first and last. Each square exposes its round count and next action through its accessible label. Completed squares remain selectable. The main ink-filled pill reads “Stitch next round” until all (24) rounds are complete, when it becomes “Start another.” Undo and Redo are underlined controls with minimum (44px) width and height. Cmd/Ctrl+Z undoes; Cmd/Ctrl+Shift+Z or Cmd/Ctrl+Y redoes. Start over and Start another clear the pattern as undoable changes.
+
+Version (2) session storage carries the pattern, selected yarn, active square, and history between Home and Work in the current tab. Save pattern is available after the first round and downloads a self-contained SVG containing only finished rounds with their retained colors. The export omits the hook, unfinished loops, control outlines, and labels, and needs no external references. Polite status messages announce changes and save failures. Without JavaScript, the complete illustration remains visible while interactive controls and progress stay hidden. The activity never represents actual carpet completion.
+
+Each added round draws its loops over (250ms) with a (0–75ms) stagger; the hook gives (250ms) feedback and moves between squares over (350ms). The enhanced canvas hides the loose thread. Holding stops when the activity leaves view or the tab is hidden. Reduced motion applies changes immediately without stitching or hook animation.
 
 ### About story and imagery
 

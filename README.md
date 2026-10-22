@@ -42,6 +42,8 @@ The checker validates local paths and fragments, responsive image sources, page 
 - `src/making.mjs`: personal making section and native SVG stitch illustration.
 - `styles.css`: visual system, responsive layouts, focus, motion, and image-viewer states.
 - `app.js`: progressive image viewer, lamp photograph switch, and interactive stitch activity.
+- `crochet-state.mjs`: round colors, completion, recoverable reset, and undo/redo history.
+- `scripts/crochet-state.test.mjs`: tests for history, color retention, saved progress, and invalid states.
 - `assets/fonts/`: two self-hosted variable fonts and their OFL licenses.
 - `assets/originals/`: published source-image variants and original PDF page renders.
 - `assets/images/`: optimized web derivatives, crops, and three responsive sizes.
@@ -72,3 +74,11 @@ git push origin main
 All site-local links are relative to the project path. The canonical URL, sitemap, social metadata, and custom 404 base path are set in `src/render.mjs`; update those if moving the repository or using a custom domain.
 
 The site contains no accounts, analytics, contact forms, or third-party embeds. Email links open the visitor's mail app. LinkedIn, Behance, Drive, GSA, newspaper, and Vimeo links open their original sources. The project summaries distinguish research findings, recommendations, delivered artifacts, and subsequent reported events.
+
+## Crochet activity
+
+Home and Work share an illustrated six-square pattern. Each square takes four rounds. Visitors can choose yarn for each new round, tap a square, or hold the main action to keep stitching. Undo and redo also work with Cmd/Ctrl+Z, Shift+Z, and Ctrl+Y while focus is inside the activity. Arrow keys move between squares; Enter and Space add a round. Starting over can be undone.
+
+Progress stays in the current tab’s session storage, including when moving between Home and Work. It is never sent to a server. Save pattern downloads a self-contained SVG containing the rounds made so far. The activity illustrates a pattern; it does not track the real carpet’s progress. Reduced motion removes the drawing animation. Without JavaScript, the complete illustration remains visible.
+
+Run `npm test` for the pattern-state tests, then `npm run prepare:pages` to build and check the published files.

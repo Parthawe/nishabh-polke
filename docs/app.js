@@ -1,3 +1,5 @@
+import {CrochetPattern, YARNS, ROUND_NAMES} from './crochet-state.mjs';
+
 // Keep optional motion interruptible, including changes to the system preference.
 const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
 const runningMotion = new Set();
@@ -111,71 +113,168 @@ if (viewer && typeof viewer.showModal === 'function') {
 }
 
 for(const crochet of document.querySelectorAll('[data-crochet]')) {
+  const storageKey='nishabh-crochet-v2';
+  let saved;
+  try { saved=JSON.parse(sessionStorage.getItem(storageKey)); } catch {}
+  const pattern=new CrochetPattern(saved);
   const patches=[...crochet.querySelectorAll('[data-patch]')];
+  const rounds=patches.map(patch=>[...patch.querySelectorAll('[data-round]')]);
   const button=crochet.querySelector('[data-stitch]');
   const undo=crochet.querySelector('[data-unpick]');
-  const counter=crochet.querySelector('[data-stitch-counter]');
+  const redo=crochet.querySelector('[data-redo]');
+  const reset=crochet.querySelector('[data-reset]');
+  const save=crochet.querySelector('[data-save-pattern]');
   const status=crochet.querySelector('.crochet-status');
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
-  const order=[];
-  let working=false;
+  const stopPresses=new Set();
+  const persist=()=>{try { sessionStorage.setItem(storageKey,pattern.serialize()); } catch {}};
+  const say=text=>{status.textContent=text;};
+  const stopAll=()=>stopPresses.forEach(stop=>stop());
   crochet.classList.add('is-interactive');
   crochet.querySelector('.crochet-svg').setAttribute('role','group');
   crochet.querySelectorAll('[hidden]').forEach(control=>control.hidden=false);
   const update=()=>{
-    counter.textContent=`${order.length} of ${patches.length} squares stitched`;
-    button.firstChild.textContent=order.length===patches.length?'Start again ':'Stitch next square ';
-    button.disabled=working;
-    undo.disabled=working||order.length===0;
-    crochet.setAttribute('aria-busy',String(working));
-    patches.forEach((patch,i)=>{
-      const made=order.includes(i);
-      patch.classList.toggle('is-stitched',made);
-      patch.setAttribute('role','button');patch.setAttribute('tabindex','0');
-      patch.setAttribute('aria-pressed',String(made));
-      patch.setAttribute('aria-disabled',String(working));
-      patch.setAttribute('aria-label',`${made?'Unpick':'Stitch'} square ${i+1}`);
+    const total=pattern.total;
+    crochet.classList.toggle('is-complete',total===24);
+    crochet.querySelector('[data-stitch-counter]').textContent=`${total} of 24 rounds`;
+    crochet.querySelector('[data-square-counter]').textContent=`${pattern.completed} of 6 squares`;
+    crochet.querySelector('[data-pattern-progress]').value=total;
+    button.firstChild.textContent=total===24?'Start another ':'Stitch next round ';
+    undo.disabled=!pattern.history.length;
+    redo.disabled=!pattern.future.length;
+    reset.disabled=!total;
+    save.disabled=!total;
+    const active=pattern.cells[pattern.active];
+    crochet.querySelector('[data-active-square]').textContent=`Square ${pattern.active+1} · ${active.length===4?'Complete':ROUND_NAMES[active.length]}`;
+    crochet.querySelectorAll('.round-dots i').forEach((dot,i)=>{
+      dot.classList.toggle('is-filled',i<active.length);
+      dot.style.backgroundColor=active[i]||'transparent';
+    });
+    crochet.querySelectorAll('[data-yarn]').forEach(choice=>choice.setAttribute('aria-pressed',String(choice.dataset.yarn===pattern.yarn)));
+    crochet.style.setProperty('--yarn',pattern.yarn);
+    crochet.style.setProperty('--hook-x',`${-221+(pattern.active%3)*110}px`);
+    crochet.style.setProperty('--hook-y',`${-71+Math.floor(pattern.active/3)*110}px`);
+    patches.forEach((patch,index)=>{
+      const count=pattern.cells[index].length;
+      patch.classList.toggle('is-stitched',count===4);
+      patch.classList.toggle('is-empty',count===0);
+      patch.classList.toggle('is-active',index===pattern.active);
+      patch.setAttribute('role','button');
+      patch.setAttribute('tabindex',index===pattern.active?'0':'-1');
+      patch.setAttribute('aria-label',`Square ${index+1}, ${count} of 4 rounds. ${count===4?'Complete.':`Add ${ROUND_NAMES[count].toLowerCase()}.`}`);
+      rounds[index].forEach((round,step)=>{
+        const color=pattern.cells[index][step];
+        round.classList.toggle('is-done',Boolean(color));
+        round.style.color=color||pattern.yarn;
+        if(!color)round.getAnimations({subtree:true}).forEach(animation=>animation.cancel());
+      });
+    });
+    persist();
+  };
+  const select=index=>{pattern.active=index;update();};
+  const add=index=>{
+    if(index===undefined)index=pattern.next();
+    if(index<0)return false;
+    const change=pattern.add(index);
+    if(!change){select(index);say(`Square ${index+1} is complete. Choose another square or undo a round.`);return false;}
+    update();
+    if(!reduced.matches){
+      rounds[index][change.round].querySelectorAll('.yarn-loop').forEach((loop,i)=>animateFeedback(loop,[
+        {strokeDasharray:'1',strokeDashoffset:1,opacity:.35},
+        {strokeDasharray:'1',strokeDashoffset:0,opacity:1}
+      ],{duration:250,delay:(i%4)*25}));
+      animateFeedback(crochet.querySelector('.crochet-hook'),[{transform:'rotate(-8deg)'},{transform:'rotate(0deg)'}],{duration:250});
+    }
+    say(pattern.total===24?'Your pattern is complete. Save it or start another.':`${ROUND_NAMES[change.round]} added to square ${index+1}. ${pattern.total} of 24 rounds.`);
+    return true;
+  };
+  // A tap remains a normal click. Holding repeats only after a deliberate pause.
+  const press=(target,step,tap=step)=>{
+    let delay,repeat,pointer,moved=false,held=false,startX=0,startY=0;
+    const stop=()=>{clearTimeout(delay);clearInterval(repeat);pointer=undefined;};
+    stopPresses.add(stop);
+    target.addEventListener('pointerdown',event=>{
+      if(event.button!==0||!event.isPrimary)return;
+      stop();pointer=event.pointerId;moved=false;held=false;
+      startX=event.clientX;startY=event.clientY;
+      target.setPointerCapture?.(event.pointerId);
+      delay=setTimeout(()=>{
+        held=true;
+        if(!step()){stop();return;}
+        repeat=setInterval(()=>{if(!step())stop();},220);
+      },380);
+    });
+    target.addEventListener('pointermove',event=>{
+      if(pointer===event.pointerId&&Math.hypot(event.clientX-startX,event.clientY-startY)>12){moved=true;stop();}
+    });
+    target.addEventListener('pointerup',stop);
+    target.addEventListener('pointercancel',()=>{moved=true;stop();});
+    target.addEventListener('lostpointercapture',stop);
+    target.addEventListener('click',event=>{
+      if(event.detail>0&&(held||moved)){held=false;moved=false;return;}
+      tap();
     });
   };
-  const unpick=index=>{
-    order.splice(order.indexOf(index),1);update();
-    status.textContent=`Square ${index+1} unpicked. ${counter.textContent}.`;
-  };
-  const stitch=index=>{
-    if(working)return;
-    if(order.includes(index)){unpick(index);return;}
-    working=true;update();
-    const patch=patches[index];
-    crochet.style.setProperty('--hook-x',`${-221+(index%3)*110}px`);
-    crochet.style.setProperty('--hook-y',`${-71+Math.floor(index/3)*110}px`);
-    patch.classList.add('is-stitching');crochet.classList.add('is-working');
-    setTimeout(()=>{
-      patch.classList.remove('is-stitching');order.push(index);working=false;
-      crochet.classList.remove('is-working');update();
-      status.textContent=order.length===patches.length?'Your illustrated pattern is complete. Start again or unpick a square.':`Square ${index+1} stitched. ${counter.textContent}.`;
-    },reduced.matches?0:1250);
-  };
-  patches.forEach((patch,i)=>{
-    patch.addEventListener('click',()=>stitch(i));
+  const clear=()=>{stopAll();if(pattern.clear()){update();say('A fresh pattern. Undo brings your previous one back.');}};
+  press(button,()=>pattern.total<24&&add(),()=>pattern.total===24?clear():add());
+  patches.forEach((patch,index)=>{
+    press(patch,()=>add(index));
+    patch.addEventListener('focus',()=>{if(pattern.active!==index)select(index);});
     patch.addEventListener('keydown',event=>{
-      if(event.key==='Enter'||event.key===' '){event.preventDefault();stitch(i);}
-      const next={ArrowRight:(i+1)%6,ArrowLeft:(i+5)%6,ArrowDown:(i+3)%6,ArrowUp:(i+3)%6,Home:0,End:5}[event.key];
-      if(next!==undefined){event.preventDefault();patches[next].focus();}
+      if(event.key==='Enter'||event.key===' '){event.preventDefault();if(!event.repeat)add(index);}
+      const next={ArrowRight:(index+1)%6,ArrowLeft:(index+5)%6,ArrowDown:(index+3)%6,ArrowUp:(index+3)%6,Home:0,End:5}[event.key];
+      if(next!==undefined){event.preventDefault();select(next);patches[next].focus({preventScroll:true});}
     });
   });
-  button.addEventListener('click',()=>{
-    if(order.length===patches.length){order.length=0;update();status.textContent='A fresh pattern. Choose a square to begin.';return;}
-    stitch(patches.findIndex((_,i)=>!order.includes(i)));
+  const undoRound=()=>{stopAll();if(pattern.undo()){update();say(`Change undone. ${pattern.total} of 24 rounds.`);}};
+  const redoRound=()=>{stopAll();if(pattern.redo()){update();say(`Change restored. ${pattern.total} of 24 rounds.`);}};
+  undo.addEventListener('click',undoRound);
+  redo.addEventListener('click',redoRound);
+  reset.addEventListener('click',clear);
+  crochet.addEventListener('keydown',event=>{
+    if(!(event.metaKey||event.ctrlKey)||event.altKey)return;
+    if(event.key.toLowerCase()==='z'){event.preventDefault();event.shiftKey?redoRound():undoRound();}
+    if(event.key.toLowerCase()==='y'){event.preventDefault();redoRound();}
   });
-  undo.addEventListener('click',()=>{if(!working&&order.length)unpick(order.at(-1));});
   crochet.querySelectorAll('[data-yarn]').forEach(choice=>choice.addEventListener('click',()=>{
-    crochet.style.setProperty('--yarn',choice.dataset.yarn);
-    crochet.querySelectorAll('[data-yarn]').forEach(other=>other.setAttribute('aria-pressed',String(other===choice)));
+    if(YARNS.includes(choice.dataset.yarn)){pattern.yarn=choice.dataset.yarn;update();say(`${choice.textContent.trim()} yarn is ready for the next round.`);}
   }));
+  save.addEventListener('click',()=>{
+    if(!pattern.total)return;
+    try {
+      const svg=crochet.querySelector('.crochet-svg').cloneNode(true);
+      svg.setAttribute('xmlns','http://www.w3.org/2000/svg');
+      svg.setAttribute('width','1200');svg.setAttribute('height','855');
+      svg.querySelector('title').textContent='My crochet pattern';
+      svg.querySelector('desc').textContent=`An illustrated pattern with ${pattern.total} rounds across six squares.`;
+      svg.querySelectorAll('[data-patch]').forEach((patch,index)=>{
+        patch.querySelectorAll('[data-round]').forEach((round,step)=>{
+          const color=pattern.cells[index][step];
+          if(color)round.setAttribute('style',`color:${color}`);else round.remove();
+        });
+      });
+      svg.querySelectorAll('.patch-hit-area,.yarn-border,.square-number,.loose-thread,.crochet-hook').forEach(element=>element.remove());
+      [svg,...svg.querySelectorAll('*')].forEach(element=>{
+        for(const attr of [...element.attributes])if(attr.name.startsWith('data-')||attr.name.startsWith('aria-')||attr.name==='tabindex'||attr.name==='role')element.removeAttribute(attr.name);
+      });
+      const background=document.createElementNS('http://www.w3.org/2000/svg','rect');
+      background.setAttribute('width','400');background.setAttribute('height','285');background.setAttribute('fill','#f5f5f7');
+      const style=document.createElementNS('http://www.w3.org/2000/svg','style');
+      style.textContent='.yarn-loop{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}.edge-loop{stroke-width:2.5}';
+      svg.prepend(background,style);
+      const blob=new Blob([new XMLSerializer().serializeToString(svg)],{type:'image/svg+xml'});
+      const url=URL.createObjectURL(blob);
+      const link=document.createElement('a');link.href=url;link.download='my-crochet-pattern.svg';
+      document.body.append(link);link.click();link.remove();
+      setTimeout(()=>URL.revokeObjectURL(url),10000);
+      say('Your pattern is ready to download.');
+    } catch { say('The pattern could not download. Try saving it again.'); }
+  });
   update();
-  const visible=new IntersectionObserver(entries=>entries.forEach(entry=>crochet.classList.toggle('is-visible',entry.isIntersecting)),{threshold:.1});
+  if(pattern.total)say(`Your pattern is back. ${pattern.total} of 24 rounds.`);
+  const visible=new IntersectionObserver(entries=>entries.forEach(entry=>{if(!entry.isIntersecting)stopAll();}),{threshold:.1});
   visible.observe(crochet);
-  document.addEventListener('visibilitychange',()=>crochet.classList.toggle('is-paused',document.hidden));
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)stopAll();});
 }
 
 const lamp=document.querySelector('[data-lamp]');

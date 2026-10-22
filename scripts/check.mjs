@@ -27,7 +27,8 @@ for(const file of pages){
     const ref=m[1].replaceAll('&amp;','&');
     if(!ref||ref==='#'||/^(https?:|mailto:|tel:|data:)/.test(ref))continue;
     links++;
-    const [pathname,fragment]=ref.split('#');
+    const [withQuery,fragment]=ref.split('#');
+    const pathname=withQuery.split('?')[0];
     let target=pathname?path.resolve(path.dirname(file),pathname):file;
     if(pathname.startsWith('/nishabh-polke/'))target=path.join(root,pathname.slice('/nishabh-polke/'.length));
     try{
@@ -53,9 +54,10 @@ assert.equal((work.match(/data-research-project=/g)||[]).length,4,'Four visible 
 assert.equal((home.match(/<article class="home-project"/g)||[]).length,4,'Four projects together on Home');
 assert.ok(home.includes('data-crochet')&&home.includes('data-lamp'),'Personal making interactions included');
 assert.ok(work.includes('data-crochet'),'Work includes the stitch activity');
-for(const html of [home,work]){assert.equal((html.match(/data-patch=/g)||[]).length,6,'Six illustrated squares');assert.equal((html.match(/data-yarn=/g)||[]).length,3,'Three yarn choices');assert.ok(html.includes('data-unpick')&&html.includes('data-stitch-counter'),'Undo and progress controls');}
+for(const html of [home,work]){assert.equal((html.match(/data-patch=/g)||[]).length,6,'Six illustrated squares');assert.equal((html.match(/data-yarn=/g)||[]).length,3,'Three yarn choices');assert.ok(html.includes('data-unpick')&&html.includes('data-redo')&&html.includes('data-stitch-counter'),'History and progress controls');assert.equal((html.match(/data-round=/g)||[]).length,24,'Four rounds in each square');assert.ok(html.includes('data-save-pattern'),'Pattern export control');}
 for(const name of ['nishabh-polke-ux-portfolio.pdf','nishabh-polke-architecture-portfolio.pdf','forres-stakeholder-recommendation.pdf']){
   const buffer=await readFile(path.join(root,'assets/downloads',name));assert.equal(buffer.subarray(0,5).toString(),'%PDF-');
 }
+assert.equal(await readFile(path.join(root,'crochet-state.mjs'),'utf8'),await readFile(path.join(root,'../crochet-state.mjs'),'utf8'),'Published pattern module matches source');
 assert.deepEqual(errors,[],errors.join('\n'));
 console.log(`Passed: ${pages.length} pages, ${links} local links, responsive image sources, metadata, PDF headers, and GitHub file limits.`);
