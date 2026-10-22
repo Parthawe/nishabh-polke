@@ -1,4 +1,5 @@
 import {CrochetPattern, YARNS, ROUND_NAMES} from './crochet-state.mjs';
+import {planStitchMotion,ROUND_DURATION,STITCH_DRAW,HOLD_INTERVAL} from './crochet-motion.mjs';
 
 // Keep optional motion interruptible, including changes to the system preference.
 const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
@@ -174,6 +175,8 @@ for(const crochet of document.querySelectorAll('[data-crochet]')) {
         const color=pattern.cells[index][step];
         round.classList.toggle('is-done',Boolean(color));
         round.style.color=color||pattern.yarn;
+        const prefix=crochet.querySelector('.crochet-svg').dataset.yarnPrefix;
+        round.style.setProperty('--yarn-material',`url(#${prefix}-fiber-${YARNS.indexOf(color||pattern.yarn)})`);
         if(!color)round.getAnimations({subtree:true}).forEach(animation=>animation.cancel());
       });
     });
@@ -189,19 +192,14 @@ for(const crochet of document.querySelectorAll('[data-crochet]')) {
     settleStitches();
     if(!reduced.matches){
       const stitches=[...rounds[index][change.round].querySelectorAll('[data-yarn-stitch]')];
-      const duration=760, draw=125, interval=(duration-draw)/(stitches.length-1);
-      const frames=[];
+      const {frames,delays}=planStitchMotion(stitches.map(stitchPoint));
       crochet.classList.add('is-stitching');
       stitches.forEach((stitch,i)=>{
-        const delay=i*interval;
-        animateStitch(stitch,[{opacity:0},{opacity:0,offset:.12},{opacity:1}],{duration:draw,delay,fill:'backwards'});
-        animateStitch(stitch.querySelector('.yarn-body'),[{strokeDasharray:'1',strokeDashoffset:1},{strokeDasharray:'1',strokeDashoffset:0}],{duration:draw,delay,fill:'backwards',easing:'cubic-bezier(.25,.1,.25,1)'});
-        const [x,y]=stitchPoint(stitch),offset=i/(stitches.length-1);
-        frames.push({transform:`translate(${x}px,${y}px) rotate(-8deg)`,offset:offset*.84});
-        frames.push({transform:`translate(${x+.7}px,${y-1}px) rotate(3deg)`,offset:Math.min(1,offset*.84+.008)});
+        const delay=delays[i];
+        animateStitch(stitch,[{opacity:0},{opacity:1}],{duration:STITCH_DRAW,delay,fill:'backwards',easing:'cubic-bezier(.22,1,.36,1)'});
+        stitch.querySelectorAll('.yarn-body,.yarn-soft,.yarn-grain').forEach(strand=>animateStitch(strand,[{strokeDasharray:'1',strokeDashoffset:1},{strokeDasharray:'1',strokeDashoffset:0}],{duration:STITCH_DRAW,delay,fill:'backwards',easing:'cubic-bezier(.22,1,.36,1)'}));
       });
-      frames.push({transform:hookAt(stitchPoint(stitches.at(-1))),offset:1});
-      const travel=animateStitch(hook,frames,{duration,easing:'linear'});
+      const travel=animateStitch(hook,frames,{duration:ROUND_DURATION,easing:'linear'});
       const sequence=stitchSequence;
       const finish=()=>{if(sequence===stitchSequence)crochet.classList.remove('is-stitching');};
       travel?.finished.then(finish,finish);
@@ -222,7 +220,7 @@ for(const crochet of document.querySelectorAll('[data-crochet]')) {
       delay=setTimeout(()=>{
         held=true;
         if(!step()){stop();return;}
-        repeat=setInterval(()=>{if(!step())stop();},800);
+        repeat=setInterval(()=>{if(!step())stop();},HOLD_INTERVAL);
       },380);
     });
     target.addEventListener('pointermove',event=>{
@@ -271,7 +269,7 @@ for(const crochet of document.querySelectorAll('[data-crochet]')) {
       svg.querySelectorAll('[data-patch]').forEach((patch,index)=>{
         patch.querySelectorAll('[data-round]').forEach((round,step)=>{
           const color=pattern.cells[index][step];
-          if(color)round.setAttribute('style',`color:${color}`);else round.remove();
+          if(color)round.style.color=color;else round.remove();
         });
       });
       svg.querySelectorAll('.patch-hit-area,.yarn-border,.square-number,.crochet-hook').forEach(element=>element.remove());

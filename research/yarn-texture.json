@@ -1,0 +1,11 @@
+{
+  "generated_original": "assets/originals/yarn-fiber-generated.png",
+  "web_texture": "assets/images/yarn-fiber-texture.jpg",
+  "tool": "built-in image_gen",
+  "reference": "assets/originals/crochet-carpet.png",
+  "prompt_record": "research/yarn-texture-generation.md",
+  "original_sha256": "22e7f084522114314b2a0551ae44a9aabe523218bea1f609c30c629787982c7d",
+  "web_sha256": "dffb758c3765ac35beb0d04d1c25d6f1b8c7eab1307717d2bad186016dbb42de",
+  "usage": "Home and Work interactive yarn strokes; self-contained SVG pattern export",
+  "credit": "AI-generated wool material using the user-supplied carpet photograph as a reference; not project photography"
+}

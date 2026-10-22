@@ -41,3 +41,14 @@ The image viewer opened, zoomed, closed by Escape and button, restored focus to 
 - Reviewed desktop and 390px mobile layouts. The stitch detail remains legible without horizontal overflow.
 - Reduced motion shows finished rounds immediately and hides the hook. Saved SVG parses with all yarn styles, no ellipses, no scripts, and no external references.
 - Finish reviewer: ship, with no material fixes. Reviewed still frames and animation code, rather than video.
+
+
+## Soft wool material and continuous motion
+
+- New wool texture generated from the supplied carpet as a material reference; the PNG original, web JPEG, prompt, and checksums are preserved. The three yarn colors remain intact.
+- Yarn strokes are thicker, with rounded bends and a soft edge. The embedded raster material remains present in SVG downloads with no external image request. Parsed a downloaded SVG and confirmed its three embedded image payloads match the web texture byte for byte.
+- Seven tests pass, including smooth hook-curve bounds, ordered stitch arrivals, stationary paths, retained colors, and recoverable history.
+- Browser checks passed at desktop and 390px mobile: held stitching, retained palette choices, undo/redo, export, keyboard Enter, and reduced motion. Reduced motion hides the hook and applies rounds immediately. No horizontal overflow or console warnings/errors observed.
+
+- Opened the downloaded SVG directly in the browser: the yarn colors and texture render without the website styles. Verified the no-JavaScript fallback on Work also retains its material and hides the game controls.
+- Independent finish review: ship. No material fixes remained; the crochet documentation was updated to the implemented material and motion.

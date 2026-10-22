@@ -574,5 +574,19 @@
     "sha256": "e7a04f825806083c5674342acdc649c693b7eebccc33d91714b301066966663d",
     "bytes": 2221771,
     "status": "extracted"
+  },
+  {
+    "id": "yarn-fiber-generated",
+    "url": null,
+    "source": "Built-in image generation using supplied carpet as material reference; research/yarn-texture-generation.md",
+    "credit": "Generated wool material; not project photography",
+    "original": "assets/originals/yarn-fiber-generated.png",
+    "sha256": "22e7f084522114314b2a0551ae44a9aabe523218bea1f609c30c629787982c7d",
+    "bytes": 4094295,
+    "width": 1254,
+    "height": 1254,
+    "status": "generated",
+    "web_texture": "assets/images/yarn-fiber-texture.jpg",
+    "usage": "Home and Work yarn strokes; embedded SVG pattern downloads"
   }
 ]

@@ -17,7 +17,7 @@ for(const file of pages){
   assert.match(html,/<html lang="en">/);
   assert.match(html,/<meta name="description" content="[^"]+"/);
   assert.match(html,/54d85aec/,'Direction contract survives production rendering');
-  assert.ok(!/TODO|lorem ipsum|placeholder/i.test(html),`${label}: no placeholder content`);
+  assert.ok(!/TODO|lorem ipsum|placeholder/i.test(html.replace(/data:image\/[^;"]+;base64,[A-Za-z0-9+/=]+/g,'')),`${label}: no placeholder content`);
   assert.ok(!/<iframe|<form|https?:\/\/[^" ]+\.js/.test(html),`${label}: no forms or third-party runtime`);
   for(const m of html.matchAll(/<img\b[^>]*>/g)){
     assert.match(m[0],/\balt="[^"]*"/,`${label}: image alt`);
@@ -59,5 +59,6 @@ for(const name of ['nishabh-polke-ux-portfolio.pdf','nishabh-polke-architecture-
   const buffer=await readFile(path.join(root,'assets/downloads',name));assert.equal(buffer.subarray(0,5).toString(),'%PDF-');
 }
 assert.equal(await readFile(path.join(root,'crochet-state.mjs'),'utf8'),await readFile(path.join(root,'../crochet-state.mjs'),'utf8'),'Published pattern module matches source');
+assert.equal(await readFile(path.join(root,'crochet-motion.mjs'),'utf8'),await readFile(path.join(root,'../crochet-motion.mjs'),'utf8'),'Published motion module matches source');
 assert.deepEqual(errors,[],errors.join('\n'));
 console.log(`Passed: ${pages.length} pages, ${links} local links, responsive image sources, metadata, PDF headers, and GitHub file limits.`);

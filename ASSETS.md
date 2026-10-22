@@ -91,7 +91,7 @@ Supplied on 21 October 2026 for this portfolio. Credit: Nishabh Polke / supplied
 | `assets/originals/crochet-lamp.png` | Home: pendant lamp view; responsive WebP variants and original download. |
 | `assets/originals/crochet-lamp-detail.png` | Home: glowing stitch detail, selected with the photograph switch; direct link without JavaScript. |
 
-The animated granny-square study in `src/making.mjs` is an original code-native SVG illustration inspired by the carpet photograph. It represents illustrative stitches, not measured project progress.
+The animated granny-square study in `src/making.mjs` is an original SVG illustration inspired by the carpet photograph, with an embedded generated wool material. It represents illustrative stitches, not measured project progress.
 
 ## Additional research crops
 
@@ -117,3 +117,8 @@ Home and Work use `cessation-preview-*` (the first two interview-finding panels 
 The source JPEGs were extracted directly from the original PDF and archived as `assets/originals/ux-08-native.jpg` and `ux-05-native.jpg`, each 3508×2481px. Their source records, dimensions, sizes and SHA-256 hashes are in the asset manifest. `scripts/prepare-editorial-images.py` records normalized crop bounds and creates three WebP variants. Small matching background margins preserve the selected panels within the 3:2 ratio. Project frames apply zero CSS padding; no research text or diagrams were redrawn. Work enlargement links retain the complete native source image and its download.
 
 The smart-home preview pairs the original pairing screen and connected-device screen side by side at a larger scale, excluding the surrounding annotation columns. The source screenshots and their existing red highlights remain intact. The exact two crop rectangles and proportional layout are recorded in `scripts/prepare-editorial-images.py`; the complete annotated source remains available through enlargement and original download. The earlier `smart-home-preview-*` panel crop is retained as an archived derivative.
+
+
+## Generated wool material
+
+`assets/originals/yarn-fiber-generated.png` is a generated macro wool texture made with the built-in image-generation tool, using the user-supplied carpet photograph as a material reference. Its web derivative is `assets/images/yarn-fiber-texture.jpg`. It appears only inside the yarn strokes in the interactive study on Home and Work and is embedded in pattern downloads. It is not project photography. The full prompt and encoding steps are in [research/yarn-texture-generation.md](research/yarn-texture-generation.md).

@@ -44,6 +44,7 @@ The checker validates local paths and fragments, responsive image sources, page 
 - `styles.css`: visual system, responsive layouts, focus, motion, and image-viewer states.
 - `app.js`: progressive image viewer, lamp photograph switch, and interactive stitch activity.
 - `crochet-state.mjs`: round colors, completion, recoverable reset, and undo/redo history.
+- `crochet-motion.mjs`: continuous hook curves and stitch timing.
 - `scripts/crochet-state.test.mjs`: tests for history, color retention, saved progress, and invalid states.
 - `assets/fonts/`: two self-hosted variable fonts and their OFL licenses.
 - `assets/originals/`: published source-image variants and original PDF page renders.
@@ -84,4 +85,4 @@ Progress stays in the current tab’s session storage, including when moving bet
 
 Run `npm test` for the pattern-state tests, then `npm run prepare:pages` to build and check the published files.
 
-The stitch drawing uses clustered posts, V-shaped heads, chain joins, and a braided border. Strand details come from narrow paths within the yarn strokes. The illustrated structure was informed by [Yarnspirations’ guide to granny crochet](https://www.yarnspirations.com/blogs/how-to/guide-to-granny-crochet-squares-circles-hearts-stripes-and-more). This is an interactive illustration, not a counted crochet pattern. Each round forms clockwise over 760ms; the hook follows the active stitch. Holding repeats every 800ms, and interruption settles the drawing immediately.
+The stitch drawing uses clustered posts, V-shaped heads, chain joins, and a braided border. Thicker, rounded strands use an embedded wool texture generated from the carpet reference; the original carpet photograph remains the documentary source. Texture provenance and the full built-in generation prompt are in [research/yarn-texture-generation.md](research/yarn-texture-generation.md). The illustrated structure was informed by [Yarnspirations’ guide to granny crochet](https://www.yarnspirations.com/blogs/how-to/guide-to-granny-crochet-squares-circles-hearts-stripes-and-more). This is an interactive illustration, not a counted crochet pattern. Each round forms clockwise over 920ms. The hook follows a continuous curved path, with stitch arrivals timed by travel distance. Holding repeats every 980ms, and interruption settles the drawing immediately.
